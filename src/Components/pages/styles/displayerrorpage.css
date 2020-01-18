@@ -1,0 +1,7 @@
+.displayerrorpage {
+    display: flex;
+    min-height: 90vh;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+}
