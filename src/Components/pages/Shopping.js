@@ -12,14 +12,48 @@ function Shopping() {
 
 const [state, dispatch] = useContext(Context);
 let [itemModal, toggleItemModal] = useState(false)
+const initialState = {
+    title : "", 
+    description: "",
+    price: "",
+    imageUrl: "",
+    key: "",
+    id: "",
+    amount: 0,
+    totalAmount: 0
+}
 
  function openItem(id) {
+     if (state.Items.id) {
+         dispatch ({
+             type: 'OPEN_CART',
+             payload: {
+                    title : "", 
+                    description: "",
+                    price: "",
+                    imageUrl: "",
+                    key: "",
+                    id: "",
+                    amount: 0,
+                    totalAmount: 0
+                
+             }
+         })
+     }
      toggleItemModal(itemModal = !itemModal);
-     const filteredItem = state.Items.filter(item => item.id === id).pop()
+     const filteredItem = state.Items.find( (item) => { return item.id === id})
      dispatch({
          type: 'OPEN_CART',
          payload: filteredItem
      });
+ }
+
+ function hideModal() {
+    dispatch({
+        type: "CLOSE_MODAL",
+        payload: initialState
+    })
+    toggleItemModal(itemModal = !itemModal)
  }
 
         return(
@@ -30,10 +64,10 @@ let [itemModal, toggleItemModal] = useState(false)
                 </h1>
                 <h3>
                     <Link to="/addnewitem" >Add New Item</Link>
-                    <Link to="/cartitem" >Cart</Link>
-                    <Link to="/addorderitem" >Orders</Link>
+                    <Link to="/ordersummary" >Cart</Link>
+                    <Link to="/ordereditems" >Orders</Link>
                 </h3>
-                    <ItemModal show = {itemModal} onHide={()=>{toggleItemModal(itemModal = !itemModal)}}/>
+                    <ItemModal show = {itemModal} onHide={hideModal} />
                 </Jumbotron>
                 {state.Items.map((items) => {
                     return (
@@ -44,6 +78,7 @@ let [itemModal, toggleItemModal] = useState(false)
                            price={items.price}
                            imageUrl={items.imageUrl}
                            key = {items.key}
+                           amountAvailable = {items.amountAvailable}
                            clicked ={()=> openItem(items.id)}/>
                        )} 
                        )

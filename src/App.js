@@ -11,8 +11,8 @@ import Footer from './Components/footer';
 import Profile from './Components/pages/Profile';
 import Store from './Components/pages/hoc/Store';
 import AddNewItem from './Components/pages/AddNewItem';
-import CartItems from './Components/pages/CartItems';
-import AddOrderItem from './Components/pages/AddOrderItem';
+import OrderSummary from './Components/pages/OrderSummary';
+import OrderedItems from './Components/pages/OrderedItems';
 
 function App() {
 
@@ -28,9 +28,8 @@ return (
       <Route exact path="/contact" component={ContactPage} />
       <Route exact path="/profile" component={Profile} />
       <Route exact path="/addnewitem" component={AddNewItem} />
-      
-      <Route exact path="/cartitem" component={CartItems} />
-      <Route exact path="/addorderitem" component={AddOrderItem} />
+      <Route exact path="/ordersummary" component={OrderSummary} />
+      <Route exact path="/ordereditems" component={OrderedItems} />
       <Route component={Notfound} />
     </Switch>
     <Footer/>
@@ -39,5 +38,4 @@ return (
 
   );
 }
-//<Route exact path= {`item/ ${}`} component={CartItems} />
 export default App;

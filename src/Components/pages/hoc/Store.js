@@ -1,5 +1,5 @@
 import React, {createContext, useReducer} from "react";
-import Reducer from './MainStoreReducer'
+import Reducer from './useStoreReducer'
 
 const initialState = {
     Items: [{
@@ -8,7 +8,10 @@ const initialState = {
              price: "99.99",
              imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVPjDPo_CNSGpoL5NfZL8XzLAzJsrf1-nB_7KP4MI9a55cxZzNsQ&s",
              key: "random",
-             id: "random"
+             id: "random",
+             amountAvailable: 10,
+             amount: 0,
+             totalAmount: 0
         
          },
          {
@@ -17,7 +20,11 @@ const initialState = {
              price: "150",
              imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSntrbto9AejA8UIYyuExTkfIctDY8WEXr-MZxEoUbhypCAjhhN&s",
              key: "shit",
-             id: "shit"
+             id: "shit",
+             amountAvailable: 10,
+             amount: 0,
+             totalAmount: 0
+             
          },
          {
              title : "Toy", 
@@ -25,16 +32,21 @@ const initialState = {
              price: "200",
              imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfZi9v8kkhaKgxJUe02vHi6jeguCm8h6H7Q0zdG6Nogm0deenxUA&s",
              key: "here",
-             id: "here"
+             id: "here",
+             amountAvailable: 10,
+             amount: 0,
+             totalAmount: 0
          },],
 
     Item: {
-        title : "empty", 
-        description: "empty",
-        price: "empty",
-        imageUrl: "empty",
-        key: "empty",
-        id: "empty"
+        title : "", 
+        description: "",
+        price: "",
+        imageUrl: "",
+        key: "",
+        id: "",
+        amount: 0,
+        totalAmount: 0
     },
     Cart: [],
     Orders: [],
@@ -52,28 +64,3 @@ const Store = ({children}) => {
 
 export const Context = createContext(initialState);
 export default Store;
-
-// let [itemsArray, updatedItemsArray] = useState([{
-//     title : "dildo", 
-//     description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-//     price: "99.99",
-//     imageUrl: "https://i.ebayimg.com/images/g/5mUAAOSwdg5dMsOx/s-l300.jpg",
-//     key: "random"
-
-// },
-// {
-//     title : "bigger dildo", 
-//     description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-//     price: "150",
-//     imageUrl: "https://i.ebayimg.com/images/g/5mUAAOSwdg5dMsOx/s-l300.jpg",
-//     key: "shit"
-// },
-// {
-//     title : "biggest dildo", 
-//     description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-//     price: "200",
-//     imageUrl: "https://i.ebayimg.com/images/g/5mUAAOSwdg5dMsOx/s-l300.jpg",
-//     key: "here"
-// },
-
-// ]);

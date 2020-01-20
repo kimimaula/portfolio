@@ -9,10 +9,13 @@ function Cart(props) {
             <Card.Body>
                 <Card.Title>{props.title}</Card.Title>
                 <Card.Text>
-                {props.description}
+                Amount Available : {props.amountAvailable}
                 </Card.Text>
                 <Card.Text>
-                {props.price}
+                Product Description: {props.description}
+                </Card.Text>
+                <Card.Text>
+                Price: {props.price}
                 </Card.Text>
             </Card.Body>
         </Card>
