@@ -1,0 +1,14 @@
+.OrderSummaryBox {
+    display: flex;
+    min-height: 90vh;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.OrderSummaryBox h1 {
+    display: flex;
+    justify-content: center;
+    margin: 0.5rem;
+    padding: 0.5rem;
+}

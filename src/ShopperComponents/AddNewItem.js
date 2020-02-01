@@ -1,41 +1,41 @@
-import "./styles/Contact.css"
-import React, { useContext }from 'react'
-import {Context} from '../pages/hoc/Store'
+import "./styles/AddNewItem.css"
+import React from 'react'
 import Container from 'react-bootstrap/Container'
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import { useFormik } from 'formik';
+import ShopperJumbo from '../Components/ShopperJumbo'
+import axios from "axios";
+import { useParams } from 'react-router-dom';
 
 const AddNewItem = () => {
 
-const [ state, dispatch ] = useContext(Context);
+    const user = useParams().user;
 
-const formik = useFormik({
-    initialValues: {
-    itemName: 'Enter Item Name',
-    itemDescription: 'Enter Item Description',
-    price: 'Enter Item Price',
-    imageUrl: 'Enter Item ImageUrl',
-    },
-    onSubmit: values => {
-        console.log(values);
-        dispatch({
-            type: 'ADD_NEW_ITEM',
-            payload: {
-            title : values.itemName, 
-            description: values.itemDescription,
-            price:values.price,
-            imageUrl: values.imageUrl,
-            key: "values.title",
-            id: values.title
-            }
-        });
-    },
-  });
+    const formik = useFormik({
+        initialValues: {
+        itemName: 'Enter Item Name',
+        itemDescription: 'Enter Item Description',
+        price: 'Enter Item Price',
+        imageUrl: 'Enter Item ImageUrl',
+        },
+        onSubmit: function(values) {
+        axios.post(`http://localhost:5000/api/products/${user}`, {
+                    title: values.itemName,
+                    description: values.itemDescription,
+                    price: values.price,
+                    image: values.imageUrl,
+                    })
+                    .then(response => console.log(response))
+                    .catch(error => console.log(error))
+                    }
+})
 
-return (
-<Container className = "AddNewItemBox">
+    return (
+        <Container className = "AddNewItemBox">
+            <ShopperJumbo />
+    <h1> Add New Item </h1>
     <Form onSubmit={formik.handleSubmit}>
                 <Form.Group as={Col} md="5" controlId="validationFormik01">
                 <Form.Label>Item Name</Form.Label>
@@ -80,6 +80,7 @@ return (
                 <Button className = "modalButton" type="submit">Submit New Item</Button>
             </Form>
 </Container>
-)
+        )
 }
+
 export default AddNewItem

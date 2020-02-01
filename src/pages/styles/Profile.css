@@ -1,0 +1,5 @@
+.profile-box {
+    display: flex;
+    min-height: 90vh;
+    flex-wrap: wrap;
+}

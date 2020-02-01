@@ -1,7 +1,6 @@
-.AddCartItemBox {
+.ShoppingBox {
     display: flex;
     min-height: 90vh;
-    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
 }

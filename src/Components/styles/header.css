@@ -20,3 +20,7 @@ height: 3rem;
     font-weight:bold;
     text-decoration:underline;
 }
+
+.login {
+    color: black;
+}
