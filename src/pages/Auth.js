@@ -19,7 +19,7 @@ const Auth = () => {
     },[state.isAuthenticated]) 
     
     return (
-        <Card className='AuthenticationPageBox'>
+        <Card className='authpage-box'>
         <Card.Title>Login</Card.Title>
         <Formik
                 initialValues={{ 
@@ -42,10 +42,8 @@ const Auth = () => {
                         })
                         .then(res => {
                         const { token } = res.data;
-                        console.log(token)
                         setAuthToken(token);
                         const decoded = jwt_decode(token);
-                        console.log(decoded)
                         dispatch({
                             type: 'SET_CURRENT_USER',
                             payload :  decoded

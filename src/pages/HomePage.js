@@ -1,22 +1,14 @@
+import './styles/HomePage.css'
 import React from 'react'
 import { Container, Jumbotron, Row, Col } from 'react-bootstrap'
 
 const HomePage = () => 
 
-<Container>
-    <Jumbotron>
-    <Row>
-    <Col><h2> Some Image here </h2> </Col>
-        <Col><p>some bio</p>
-        <p>some bio</p>
-        <p>some bio</p>
-        <p>some bio</p>
-        <p>some bio</p>
-        <p>some bio</p> 
-        <Row><p>some links</p><p>some links</p><p>some links</p><p>some links</p><p>some links</p> </Row>
-        </Col>
-    </Row>
-    </Jumbotron>>
+<Container className="home-page-header">
+    <div className="home-page-image-wrapper">
+    <h1 className="test">sometexthere</h1>
+    <img src="http://localhost:5000/images/StockSnap_ZU3GBGBBQP.jpg" alt="home-page-jumbo" className="home-page-image"/>
+    </div>>
     <p>resumecrap</p>
     <p>resumecrap</p>
     <p>resumecrap</p>

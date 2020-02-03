@@ -22,7 +22,7 @@ const [data, loading] = useFetch(
                id = {items._id}
                description={items.description}
                price={items.price}
-               imageUrl={items.image}
+               image={items.image}
                key = {items._id}
                clicked ={() => history.push(`/products/${items._id}`)}/>
            )} 

@@ -18,10 +18,10 @@ async function fetchData() {
     let orderData;
 
     try {
-        const response = await axios.get(`http://localhost:5000/api/order/${user}`)
+        const response = await axios.get(`http://localhost:5000/api/orders/${user}`)
         orderData = response.data.Order
     } catch (error) {
-        console.log(error)
+        alert(error)
     }
 
     setData(orderData);
@@ -34,16 +34,16 @@ useEffect(() => {
 
 return (
         <Container className = "AddOrderItemBox">
-        <button onClick={() => console.log(data)}> log </button>
         <ShopperJumbo />
-        { loading? <Spinner animation="grow" variant="info" /> : 
+        { !data? <h1>no items</h1> : loading? <Spinner animation="grow" variant="info" /> : 
             data.map((orderItem) => {
                 return <React.Fragment>
                     <p>{orderItem._id}</p>
-                    <p>{orderItem.date}</p>
+                    <p>{orderItem.orderdate}</p>
                     <p>{orderItem.totalprice}</p>
                     <p>{orderItem.orders.map((item)=> {
                         return <React.Fragment>
+                             <img src ={`http://localhost:5000/${item.image}`} alt ={item.itemname}/>
                             <p>{item.itemname}</p>
                             <p>{item.description}</p>
                             <p>{item.amount}</p>

@@ -1,5 +1,4 @@
 import './styles/Signup.css'
-import './styles/AuthenticationPage.css'
 import React, { useState } from 'react';
 import Card from 'react-bootstrap/Card'
 import Spinner from 'react-bootstrap/Spinner'
@@ -12,10 +11,10 @@ import Thumb from '../Components/Thumb';
 const Signup = () => {
 
     let history = useHistory()
-    const { register, handleSubmit, errors } = useForm()
-    const [image, setImage] = useState()
-    const [ isSubmitting , updateIsSubmitting ] = useState(false)
     const formData =  new FormData();
+    const [image, setImage] = useState()
+    const { register, handleSubmit, errors } = useForm()
+    const [ isSubmitting , updateIsSubmitting ] = useState(false)
 
     const onSubmit = async userData => {
         

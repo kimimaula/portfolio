@@ -14,14 +14,14 @@ const user = useParams().user;
    );
 
 async function test() {
-    console.log(data)
+    console.log(data.image)
 }
 
 return (
     <Container className ="profile-box">
     <div>
         <p>{data.username}</p>
-        <p></p>
+        <img src = {`http://localhost:5000/${data.image}`} alt= {data.username} />
         <p></p>
         <button onClick = {() => test()} >test</button>
     </div>

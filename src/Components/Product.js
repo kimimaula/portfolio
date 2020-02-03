@@ -5,11 +5,11 @@ import Card from 'react-bootstrap/Card';
 function Product(props) {
     return (
         <Card id = {props.id} style={{ width: '18rem' }} className="cart" onClick={props.clicked}>
-            <Card.Img variant="top" src={props.imageUrl} />
+            <Card.Img variant="top" src={`http://localhost:5000/${props.image}`} />
             <Card.Body>
                 <Card.Title>{props.title}</Card.Title>
                 <Card.Text>
-                Product Description: {props.description}
+                {props.description}
                 </Card.Text>
                 <Card.Text>
                 Price: {props.price}

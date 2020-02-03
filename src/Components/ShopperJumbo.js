@@ -17,16 +17,16 @@ const ShopperJumbo = () => {
         </h1>
         <Col >
             <Row>
-            <Button variant="link" className="jumbo-btn"><Link to={"/shopper"} >Shop</Link></Button>
+            <Button variant="link" className="jumbo-btn" onClick={() => history.push("/shopper")}>Shop</Button>
             </Row>
             <Row>
             <Button variant="link" className="jumbo-btn" onClick={() => history.push(`/addnewitem/${state.user}`)}>Add New Item</Button>
             </Row>
             <Row>
-            <Button variant="link" className="jumbo-btn"><Link to={`/ordersummary/${state.user}`} >Cart</Link></Button>
+            <Button variant="link" className="jumbo-btn" onClick={() => history.push(`/ordersummary/${state.user}`)}>Cart</Button>
             </Row>
             <Row>
-            <Button variant="link" className="jumbo-btn"><Link to={`/ordereditems/${state.user}`} >Orders</Link></Button>
+            <Button variant="link" className="jumbo-btn" onClick={() => history.push(`/ordereditems/${state.user}`)}>Orders</Button>
             </Row>
         </Col>
         </Jumbotron>

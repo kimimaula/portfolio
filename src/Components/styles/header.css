@@ -1,26 +1,15 @@
-.BrandLogo {
-height: 3rem;
+.bg-primary{
+    background-color: #33DBFF;
+    opacity: 0.95;
 }
 
-.header-router-a {
-    color: black;
-    display: block;
-    padding: .5rem 1rem;
-}
-
-.header-router-a:hover{
-    text-decoration: none;
-}
-
-*, ::after, ::before {
-    box-sizing: border-box;
-}
-
-.active {
-    font-weight:bold;
-    text-decoration:underline;
-}
-
-.login {
+.btn-primary{
+    width: 100%;
     color: black;
 }
+
+/* PC version */
+@media only screen and (min-width: 769px) {
+    .auth{margin-left: auto}
+    .btn-primary{width: auto}
+    }

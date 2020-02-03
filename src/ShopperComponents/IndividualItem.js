@@ -65,11 +65,11 @@ const decreaseItem = () => {
         <React.Fragment>
         { loading ? <Spinner animation="grow" variant="info" /> : 
             <Card id = {product._id} style={{ width: '18rem' }} className="cart">
-            <Card.Img variant="top" src={product.image} />
+            <Card.Img variant="top" src={`http://localhost:5000/${product.image}`} />
             <Card.Body>
                 <Card.Title>{product.title}</Card.Title>
                 <Card.Text>
-                Product Description: {product.description}
+                 {product.description}
                 </Card.Text>
                 <Card.Text>
                 Price: {product.price}

@@ -1,9 +1,9 @@
 .ShoppingHeader {
     display: flex;
     min-width: 100%;
-    flex-direction: row;
     align-items: center;
     padding: 0.5rem;
+    margin-top: 3.50rem;
     background-image: url("https://image.shutterstock.com/image-vector/tiny-people-customers-bags-shopping-260nw-1331333951.jpg");
 }
 

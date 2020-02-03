@@ -3,23 +3,25 @@ import React, { useState, useEffect } from 'react';
 import { Container, Button, Row, Col } from 'react-bootstrap';
 import ShopperJumbo from '../Components/ShopperJumbo';
 import Spinner from 'react-bootstrap/Spinner';
-import axios from "axios";
-import { useHistory } from "react-router-dom";
+import axios from 'axios';
+import { useHistory } from 'react-router-dom';
+import Logo from '../assets/icons8-trash-200.png';
 
 const OrderSummary = () => {
 let history = useHistory()
-
-const [ totalPrice, updateTotalPrice ] = useState(0);
-const [ loading, update ] = useState(false)
 
 var storage = localStorage.getItem('Cart'); 
 if(storage) storage = JSON.parse(storage);
 else storage = [];
 
-const cartItems = [...storage];
+const [ totalPrice, updateTotalPrice ] = useState(0);
+const [ loading, update ] = useState(false)
+const [cartItems, updateCartItems]  = useState([...storage]);
+
 const order = cartItems.map((cartItem) => 
 ({
 itemId : cartItem._id,
+image: cartItem.image,
 itemname : cartItem.title,
 description : cartItem.description,
 amount : cartItem.amount,
@@ -27,20 +29,29 @@ price : cartItem.price
 }))
 
 function orderNow() {
-    axios.post("/api/order/neworders", {
+    axios.post("/api/orders/neworders", {
          totalprice : totalPrice,
          orders : [...order]
         })
-        .then( response => console.log(response ))
+        .then( response => console.log(response))
         .catch( error => console.log( error ))
     clearOrder()
     history.push("/ordereditems/:user")
 };
 
+function deleteItem(_id) {
+    const updatedCart = cartItems.filter(function(cartItem){
+        return cartItem.id !== _id
+    })
+    updateCartItems(updatedCart)
+    localStorage.setItem('Cart',JSON.stringify(updatedCart))
+};
+
+
 async function clearOrder() {
     update(true)
+    updateCartItems([])
     localStorage.removeItem('Cart')
-    await window.location.reload(true);
     update(false)
 };
 
@@ -66,7 +77,7 @@ return(
                 {storage.map((cartItems)=> {
                     return <Row key = {cartItems._id}>
                             <Col>
-                            <img src={cartItems.imageUrl} alt={cartItems.title}/>
+                            <img src={`http://localhost:5000/${cartItems.image}`} alt={cartItems.title}/>
                             </Col>
                             <Col>
                             {cartItems.title}
@@ -74,16 +85,18 @@ return(
                             <Col>
                             {cartItems.description}
                             </Col>
-                            {cartItems.amount}
+                            Amount Ordered : {cartItems.amount}
                             <Col>
-                            {cartItems.price}
+                            RM : {cartItems.price}
+                            </Col>
+                            <Col>
+                            <img src={Logo} alt='logo' width= "40px" height="40px" onClick={() => deleteItem(cartItems._id)}/>
                             </Col>
                             </Row>
                 })}
-                <p> SubTotal :  {totalPrice} </p>
+                <h4> SubTotal :  RM : {totalPrice} </h4>
                 </React.Fragment>
                 }
-                
                 <Button onClick={orderNow} variant="success" > Order Now </Button>
                 <Button onClick={clearOrder} variant="danger" > Clear Cart </Button>
                 </React.Fragment>}
