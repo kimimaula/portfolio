@@ -1,21 +1,38 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-function useFetchToken(url) {
+function useCurrentUser(url) {
 
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [orderData, setOrderData] = useState([]);
+  const [prodData, setProdData] = useState([]);
+  const [error, setError] = useState();
+  const [loading, setLoading] = useState();
 
-  async function fetchUrl() {
-    const response = await axios.get(url);
-    const currentuser =  response.data.currentUser[0]
-    setData(currentuser);
-    setLoading(false);
+  //`http://localhost:5000/api/products/user/${data.id}`
+
+  async function fetchUser() {
+  setLoading(true)
+  try{
+    const response = await axios.get(url)
+    const currentuser = response.data.currentUser[0]
+    const userProducts = await axios.get(`http://localhost:5000/api/products/user/${currentuser._id}`)
+    const userOrders = await axios.get(`http://localhost:5000/api/orders/${currentuser.username}`)
+    setData(currentuser)
+    setProdData(userProducts.data)
+    setOrderData(userOrders.data)
+  } catch (error) {
+    setError(error.response.data)
   }
+  setLoading(false);
+  }
+
   useEffect(() => {
-    fetchUrl();
+   fetchUser();
+   //fetchProducts()
   }, []);
-  return [data, loading];
+
+  return [ data, loading, error, prodData, orderData ];
 }
 
-export default useFetchToken;
+export default useCurrentUser;

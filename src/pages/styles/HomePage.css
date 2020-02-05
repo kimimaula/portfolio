@@ -1,31 +1,47 @@
-.home-page-header{
-    margin-top: 4rem;
+.home-page{
+    min-height: 100vh;
+    margin-top: 3.25rem;
 }
 
-.test{
-    position: absolute;
+.carousel-caption{
+    color: black;
 }
 
-.home-page-image-wrapper{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: stretch;
-  
+.carousel {
     width: 100%;
-    height: 100%;
-  
-    border-radius: 4px;
-    background-color: hsl(0, 0%, 96%);
+    height: auto;
+    margin: auto;
+  }
+
+.carousel-item{
+    height: 250px;
+    overflow: hidden;
+    width: 100%;
 }
 
 .home-page-image{
-    width: 100%;
-    object-fit: contain;
-    border-radius: 4px;
+    max-width:100%;
+    max-height:auto;
+    font-size: 16px;
+    object-fit: contain;    
+}
+
+.card-accordian{
+    margin: 1rem 0 1rem 0;
+    background-color: #6Ec0Fb;
+    opacity: 0.9;
+    
+}
+
+.card-accordian .card-body{
+    font-size: 13px;
 }
 
 /* PC version */
 @media only screen and (min-width: 769px) {
-    
+    .carousel-item{
+        height: 600px;
+        overflow: hidden;
+        width: 100%;
+    }
     }

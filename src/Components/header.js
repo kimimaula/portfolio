@@ -3,7 +3,6 @@ import './styles/header.css'
 import jwt_decode from 'jwt-decode';
 import Nav from 'react-bootstrap/Nav';
 import { Link } from 'react-router-dom';
-import Button from 'react-bootstrap/Button';
 import Navbar from 'react-bootstrap/Navbar';
 import { useHistory } from 'react-router-dom';
 import React, { useContext, useState, useEffect } from 'react';
@@ -45,32 +44,46 @@ useEffect(() => {
     }
 },[state.isAuthenticated, state.user])
 
+function logout (){
+    localStorage.removeItem('jwtToken');
+    setExpanded(false)
+    setAuthToken(false);
+    dispatch({
+            type: 'SET_CURRENT_USER',
+            payload : {}
+            });
+        history.push('/login')
+}
+
 return (
-<Navbar onToggle={()=>setExpanded(!expanded)} expanded={expanded} bg='primary' variant='dark' expand='lg' fixed='top'>
-    <Navbar.Toggle aria-controls='basic-navbar-nav' />
-    <Navbar.Collapse id='basic-navbar-nav'>
+    <Navbar onToggle={()=>setExpanded(!expanded)} expanded={expanded} bg="light" variant="light" expand="lg" fixed="top">
+    <Navbar.Brand as={Link} to={`/`}  onClick={() => setExpanded(false)}><div className="brand-logo-container">
+        <img
+        className="brand-logo"
+        src="http://localhost:5000/images/logo.png"
+        alt="First slide"
+    /></div>
+    </Navbar.Brand>
+    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+    <Navbar.Collapse id="basic-navbar-nav">
+      <Nav className="mr-auto">
+        <Nav.Link as={Link} to='/' className='header-item' onClick={() => setExpanded(false)}> Home </Nav.Link>
+        <Nav.Link as={Link} to='/shopper' className='header-item' onClick={() => setExpanded(false)}>Shopper</Nav.Link>
+        <Nav.Link as={Link} to='/contact' className='header-item' onClick={() => setExpanded(false)}>Contact</Nav.Link>
+      </Nav> 
+      {loggedin ? 
                     <Nav>
-                    <Nav.Link as={Link} to='/' className='header-router-a' onClick={() => setExpanded(false)}> Home </Nav.Link>
-                    <Nav.Link as={Link} to='/quiz' className='header-router-a' onClick={() => setExpanded(false)}> Personality Quiz </Nav.Link>
-                    <Nav.Link as={Link} to='/shopper' className='header-router-a' onClick={() => setExpanded(false)}>Shopper</Nav.Link>
-                    <Nav.Link as={Link} to='/contact' className='header-router-a' onClick={() => setExpanded(false)}>Contact</Nav.Link>
+                    <Navbar.Text className='header-item' as={Link} to={`/profile/${state.user}`}  onClick={() => setExpanded(false)} > Signed in as: {state.user}</Navbar.Text >
+                    <Navbar.Text className='header-item' variant="outline-dark" onClick = {logout} > Log Out </Navbar.Text>
                     </Nav>
-                    {loggedin ? 
-                    <React.Fragment>
-                    <Navbar.Text className='auth'as={Link} to={`/profile/${state.user}`}  onClick={() => setExpanded(false)} > Signed in as: {state.user}</Navbar.Text >
-                    <Button onClick = {() => {
-                            localStorage.removeItem('jwtToken');
-                            setExpanded(false)
-                            setAuthToken(false);
-                            dispatch({
-                                type: 'SET_CURRENT_USER',
-                                payload : {}
-                            });
-                    }} > Log Out </Button>
-                    </React.Fragment>
-                     : <Button className='auth' onClick={() => {history.push('/login'); setExpanded(false)}}> LOG IN </Button>}
+                     :
+                     <Nav>
+                     <Navbar.Text className='header-item' variant="outline-dark" onClick={() => {history.push('/signup'); setExpanded(false)}}> Sign Up </Navbar.Text>
+                     <Navbar.Text className='header-item' variant="outline-dark" onClick={() => {history.push('/login'); setExpanded(false)}}> Log In </Navbar.Text>
+                     </Nav>
+                     }
     </Navbar.Collapse>
-    </Navbar>
+  </Navbar>
 )
 }
 

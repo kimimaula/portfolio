@@ -1,0 +1,21 @@
+.avatar-container{
+    display: flex;
+    justify-content: center;
+    height: auto;
+    width: auto;
+    margin: 0.7rem 0 0.7rem 0;
+}
+
+.avatar-img{
+    display: block;
+    width: 70%;
+    max-height: 300px;
+    object-fit: cover;
+}
+
+@media only screen and (min-width: 769px) {
+    .avatar-img{
+        width: 60%;
+        max-height: 500px;
+    }
+}

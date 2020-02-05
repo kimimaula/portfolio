@@ -22,9 +22,9 @@ const Thumb = (props) => {
     return( 
     <React.Fragment>
       {
-      !file ?  <p> No file </p> : loading ? <Spinner animation="grow" variant="info" /> : <img src={file}
+      !file ?  <p>No Image Uploaded</p> : loading ? <Spinner animation="grow" variant="info" /> : <img src={file}
         alt={file.name}
-        className="img-thumbnail mt-2"
+        className="img-thumbnail"
         height={200}
         width={200} />
                     }

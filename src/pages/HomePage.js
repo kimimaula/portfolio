@@ -1,21 +1,21 @@
-import './styles/HomePage.css'
-import React from 'react'
-import { Container, Jumbotron, Row, Col } from 'react-bootstrap'
+import './styles/HomePage.css';
 
-const HomePage = () => 
+import React from 'react';
 
-<Container className="home-page-header">
-    <div className="home-page-image-wrapper">
-    <h1 className="test">sometexthere</h1>
-    <img src="http://localhost:5000/images/StockSnap_ZU3GBGBBQP.jpg" alt="home-page-jumbo" className="home-page-image"/>
-    </div>>
-    <p>resumecrap</p>
-    <p>resumecrap</p>
-    <p>resumecrap</p>
-    <p>resumecrap</p>
-    <p>resumecrap</p>
-    <p>resumecrap</p>
-    <p>resumecrap</p>
-</Container>
+import Container from 'react-bootstrap/Container';
+import HomePageAccordion from './PageComponents/HomePageAccordion'
+import HomePageCarousel from './PageComponents/HomePageCarousel'
+
+const HomePage = () => {
+
+
+
+return(
+    <Container fluid className="home-page">
+    <HomePageCarousel/>
+    <HomePageAccordion/>
+    </Container>
+    )
+}
 
 export default HomePage

@@ -1,0 +1,27 @@
+.product-card {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    max-height: 30vh;
+    max-width: 40vw;
+    align-items: center;
+}
+
+.product-card-img{
+    height: 55%;
+    width: 60%;
+}
+
+.product-card-body{
+    height: 100%;
+    width: 100%;
+}
+
+.product-card-body *{
+    font-size: 3vw;
+}
+    
+@media only screen and (min-width: 769px) {
+    .product-card-body *{
+        font-size: 1.5vw;
+    }
+}

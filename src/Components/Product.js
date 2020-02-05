@@ -1,16 +1,14 @@
-import './styles/Cart.css'
+import './styles/Product.css'
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 
 function Product(props) {
+
     return (
-        <Card id = {props.id} style={{ width: '18rem' }} className="cart" onClick={props.clicked}>
-            <Card.Img variant="top" src={`http://localhost:5000/${props.image}`} />
-            <Card.Body>
+        <Card id = {props.id} className="product-card" onClick={props.clicked}>
+            <Card.Img className="product-card-img" variant="top" src={`http://localhost:5000/${props.image}`} />
+            <Card.Body className="product-card-body">
                 <Card.Title>{props.title}</Card.Title>
-                <Card.Text>
-                {props.description}
-                </Card.Text>
                 <Card.Text>
                 Price: {props.price}
                 </Card.Text>

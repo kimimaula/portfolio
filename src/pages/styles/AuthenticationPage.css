@@ -1,3 +1,19 @@
 .authpage-box {
-    min-height: 90vh
+    margin-top: 5rem;
+    min-height: 90vh;
+    padding: 0 0.5rem 0 0.5rem;
+}
+
+.error-text{
+    color: red;
+    font-weight: bold;
+}
+
+
+/* PC version */
+@media only screen and (min-width: 769px) {
+    .authpage-box {
+    max-width: 50%; 
+    margin-top: 3.25;
+    }
 }

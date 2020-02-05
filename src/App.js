@@ -1,21 +1,24 @@
-import React from "react";
 import './App.css';
+
+import React from "react";
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
+
+
+import Auth from './pages/Auth';
+import Store from './hoc/Store';
 import Notfound from './pages/404';
+import SignUp from './pages/Signup';
+import Profile from './pages/Profile';
 import HomePage from './pages/HomePage';
-import PersonalityQuiz from './pages/PersonalityQuiz';
-import ShoppingApp from './pages/Shopping';
-import ContactPage from './pages/Contact';
 import Header from './Components/header';
 import Footer from './Components/footer';
-import Store from './hoc/Store';
-import SignUp from './pages/Signup'
-import Auth from './pages/Auth'
-import Profile from './pages/Profile';
+import ContactPage from './pages/Contact';
+import ShoppingApp from './pages/Shopping';
+import Item from './ShopperComponents/IndividualItem';
 import AddNewItem from './ShopperComponents/AddNewItem';
 import OrderSummary from './ShopperComponents/OrderSummary';
 import OrderedItems from './ShopperComponents/OrderedItems';
-import Item from './ShopperComponents/IndividualItem'
+
 
 function App() {
 
@@ -26,7 +29,6 @@ return (
     <Header/>
     <Switch>
       <Route exact path="/" component={HomePage} />
-      <Route exact path="/quiz/" component={PersonalityQuiz} />
       <Route exact path="/contact" component={ContactPage} />
       <Route exact path="/shopper" component={ShoppingApp} />
       <Route exact path="/login" component={Auth} />
