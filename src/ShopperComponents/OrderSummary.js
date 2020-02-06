@@ -5,7 +5,7 @@ import ShopperJumbo from '../Components/ShopperJumbo';
 import Spinner from 'react-bootstrap/Spinner';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
-import Logo from '../assets/icons8-trash-200.png';
+import CartItem from '../Components/CartItem'
 
 const OrderSummary = () => {
 let history = useHistory()
@@ -66,39 +66,30 @@ useEffect(() => {
 
 return(
 
-    <Container className = "OrderSummaryBox">
+    <Container className = "order-summary-container">
         <ShopperJumbo />
             <Container>
                 { loading ? <Spinner animation="grow" variant="info" /> : 
                 <React.Fragment>
                 <h1>Order Summary</h1>
                 { cartItems.length === 0 ? <p> Shopping Cart Empty, Start adding items now! </p> : 
-                <React.Fragment> 
+                <div className="order-summary-box"> 
                 {storage.map((cartItems)=> {
-                    return <Row key = {cartItems._id}>
-                            <Col>
-                            <img src={`http://localhost:5000/${cartItems.image}`} alt={cartItems.title}/>
-                            </Col>
-                            <Col>
-                            {cartItems.title}
-                            </Col>
-                            <Col>
-                            {cartItems.description}
-                            </Col>
-                            Amount Ordered : {cartItems.amount}
-                            <Col>
-                            RM : {cartItems.price}
-                            </Col>
-                            <Col>
-                            <img src={Logo} alt='logo' width= "40px" height="40px" onClick={() => deleteItem(cartItems._id)}/>
-                            </Col>
-                            </Row>
+                    return<CartItem
+                    id={cartItems._id}
+                    delete={()=> deleteItem(cartItems._id)}
+                    image={cartItems.image}
+                    title={cartItems.title}
+                    price={cartItems.price} 
+                    key={cartItems._id}
+                    amount={cartItems.amount}
+                    />
                 })}
                 <h4> SubTotal :  RM : {totalPrice} </h4>
-                </React.Fragment>
+                </div>
                 }
-                <Button onClick={orderNow} variant="success" > Order Now </Button>
-                <Button onClick={clearOrder} variant="danger" > Clear Cart </Button>
+                <Button onClick={orderNow} className="order-summary-box-button" variant="success" > Order Now </Button>
+                <Button onClick={clearOrder} className="order-summary-box-button" variant="danger" > Clear Cart </Button>
                 </React.Fragment>}
                 </Container>
     </Container>

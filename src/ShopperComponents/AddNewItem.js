@@ -5,10 +5,11 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button';
 import ShopperJumbo from '../Components/ShopperJumbo'
 import axios from "axios";
-import Spinner from 'react-bootstrap/Spinner'
 import { useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form'
 import Thumb from '../Components/Thumb'
+import Row from 'react-bootstrap/Row'
+import Form from 'react-bootstrap/Form'
 
 const AddNewItem = () => {
 
@@ -43,51 +44,68 @@ const AddNewItem = () => {
       }
 
     return (
-        <Container className = "AddNewItemBox">
+        <Container className = "add-new-item-container">
             <ShopperJumbo />
-            <Card className='AuthenticationPageBox'>
-                <Card.Title>Sign up</Card.Title>
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                <Card.Text>
-                    <label> Item Name </label>
-                    <input name="itemname" ref={register({ required: true, maxLength: 20 })} />
+            <Card className='add-new-item-box'>
+                <Card.Title>Add New Item</Card.Title>
+                    <Form onSubmit={handleSubmit(onSubmit)}>
+
+                <Form.Group controlId="formItemName">    
+                    <Form.Label> Item Name </Form.Label>
+                    <Form.Control type="text" placeholder="Enter Item Name" name="itemname" ref={register({ required: true, maxLength: 20 })} />
                     {errors.itemname &&
                     errors.itemname.type === "required" &&
-                    "This field is required"}
+                    <p className="error-text">This field is required</p>}
                     {errors.itemname &&
                     errors.itemname.type === "maxLength" &&
-                    "Item name cannot be more than 20 characters"}
-                </Card.Text>
-                <Card.Text>
-                    <label> Description </label>
-                    <input name="description" ref={register({ required: true, minLength : 100 })} />
+                    <p className="error-text">Item name cannot be more than 20 characters</p>}
+                    <Form.Text className="text-muted">
+                    Field is required and cannot be more than 20 characters
+                    </Form.Text>
+                </Form.Group>
+
+                <Form.Group controlId="formItemName">
+                    <Form.Label> Description </Form.Label>
+                    <Form.Control type="text" as="textarea" rows="4" placeholder="Enter Description" name="description" ref={register({ required: true, minLength : 100 })} />
                     {errors.description &&
                     errors.description.type === "required" &&
-                    "This field is required"}
+                    <p className="error-text">This field is required</p>}
                     {errors.description &&
                     errors.description.type === "minLength" &&
-                    "You need to put atleast 100 characters in the description"}
-                </Card.Text>
+                    <p className="error-text">You need to put atleast 100 characters in the description</p>}
+                    <Form.Text className="text-muted">
+                    Field is required and must be more than 100 characters
+                    </Form.Text>
+                </Form.Group>
+
                 <Card.Text>
-                    <label> Price </label>
-                    <input type="text" name="price" ref={register({ required: true, pattern: /^[0-9]+([\,|\.]{0,1}[0-9]{2}){0,1}$/})} />
+                    <Form.Label> Price </Form.Label>
+                    <Form.Control type="number" name="price" placeholder="00.00"ref={register({ required: true, pattern: /^[0-9]+([\,|\.]{0,1}[0-9]{2}){0,1}$/})} />
                     {errors.price &&
                     errors.price.type === "required" &&
-                    "This field is required"}
+                    <p className="error-text">This field is required</p>}
                     {errors.price &&
                     errors.price.type === "pattern" &&
-                    "Please input valid price"}
+                    <p className="error-text">Please input valid price</p>}
+                    <Form.Text className="text-muted">
+                    Only valid prices can be used
+                    </Form.Text>
                 </Card.Text>
                 <Card.Text>
-                    <label> Image </label>
-                    <input type ="file" name="file" ref={register({ required: true})} onChange={handleChange}/>
+                    <Form.Label> Image </Form.Label>
+                    <Form.Control type ="file" name="file" ref={register({ required: true})} onChange={handleChange}/>
                     {errors.file &&
                     errors.file.type === "required" &&
-                    "This field is required"}
+                    <p className="error-text">This field is required</p>}
+                    <Form.Text className="text-muted">
+                    Only jpeg, jpg and png will upload, any others will throw errors
+                    </Form.Text>
                 </Card.Text>
                 <Thumb file={image}/>
-                <Button type="submit" onClick={() => {}}> SUBMIT ITEM </Button>
-                </form>
+                <Row>
+                <Button type="submit"> SUBMIT ITEM </Button>
+                </Row>
+                </Form>
             </Card>
 </Container>
         )

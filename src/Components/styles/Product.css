@@ -1,8 +1,8 @@
 .product-card {
     margin: 0.5rem;
     padding: 0.5rem;
-    max-height: 30vh;
-    max-width: 40vw;
+    max-height: 25vh;
+    max-width: 35vw;
     align-items: center;
 }
 
@@ -14,6 +14,8 @@
 .product-card-body{
     height: 100%;
     width: 100%;
+    display: flex;
+    flex-direction: column !important;
 }
 
 .product-card-body *{
@@ -23,5 +25,10 @@
 @media only screen and (min-width: 769px) {
     .product-card-body *{
         font-size: 1.5vw;
+    }
+
+    .product-card {
+        max-height: 100%;
+        max-width: 100%;
     }
 }

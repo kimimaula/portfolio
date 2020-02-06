@@ -1,4 +1,4 @@
-.OrderSummaryBox {
+.order-summary-container {
     display: flex;
     min-height: 90vh;
     flex-direction: row;
@@ -6,9 +6,12 @@
     justify-content: center;
 }
 
-.OrderSummaryBox h1 {
+.order-summary-box{
     display: flex;
-    justify-content: center;
-    margin: 0.5rem;
-    padding: 0.5rem;
+    flex-flow: row;
+    flex-wrap: wrap;
+}
+
+.order-summary-box-button{
+    margin: 0 0.5rem 0 0.5rem;
 }

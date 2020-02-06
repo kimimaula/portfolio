@@ -6,6 +6,7 @@ import useFetch from '../hooks/useFetch';
 import { useParams } from 'react-router-dom';
 import Spinner from 'react-bootstrap/Spinner'
 import axios from "axios";
+import Order from "../Components/Order";
 
 const AddOrderItem = () => {
 
@@ -37,20 +38,15 @@ return (
         <ShopperJumbo />
         { !data? <h1>no items</h1> : loading? <Spinner animation="grow" variant="info" /> : 
             data.map((orderItem) => {
-                return <React.Fragment>
-                    <p>{orderItem._id}</p>
-                    <p>{orderItem.orderdate}</p>
-                    <p>{orderItem.totalprice}</p>
-                    <p>{orderItem.orders.map((item)=> {
-                        return <React.Fragment>
-                             <img src ={`http://localhost:5000/${item.image}`} alt ={item.itemname}/>
-                            <p>{item.itemname}</p>
-                            <p>{item.description}</p>
-                            <p>{item.amount}</p>
-                            <p>{item.price}</p>
-                        </React.Fragment>
-                    })}</p>
-                </React.Fragment>
+                return <Order
+                id={orderItem._id}
+                clicked={()=> null}
+                orderdate={orderItem.orderdate}
+                totalprice={orderItem.totalprice}
+                orders={orderItem.orders}
+                key={orderItem._id}
+                eventkey={orderItem}
+                />
             })
         } 
         </Container>

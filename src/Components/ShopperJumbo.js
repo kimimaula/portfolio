@@ -1,35 +1,49 @@
 import './styles/shoppingjumbo.css'
-import React, { useContext } from 'react';
-import { Jumbotron, Row, Col, Button, Badge } from 'react-bootstrap';
-import { Context } from '../hoc/Store';
+
+import React, { useContext, useState, useEffect } from 'react';
+import  Row from 'react-bootstrap/Row';
+import  Badge from 'react-bootstrap/Badge';
+import  Button from 'react-bootstrap/Button';
 import { useHistory } from "react-router-dom";
-import { Link } from 'react-router-dom';
+
+import { Context } from '../hoc/Store';
 
 const ShopperJumbo = () => {
 
     const [state] = useContext(Context);
+    const [loggedin, setLoggedIn] = useState(false)
     const history = useHistory();
+    
+    useEffect(()=>{
+        setLoggedIn(state.isAuthenticated)
+    },[state.isAuthenticated])
 
     return (
-        <Jumbotron className="ShoppingHeader" >
-        <h1>
-            New Year 2020 <Badge variant="secondary">SALE</Badge>
-        </h1>
-        <Col >
+        <div className="shopper-header">
+        <h3>
+            New Year 2020 <Badge variant="primary">SALE</Badge>
+        </h3>
+        <div className="shopper-header-links-container">
+        <Row >
             <Row>
-            <Button variant="link" className="jumbo-btn" onClick={() => history.push("/shopper")}>Shop</Button>
+            <Button variant="link" className="shopper-header-links" onClick={() => history.push("/shopper")}>Shop</Button>
+            </Row>
+            { loggedin ?
+            <React.Fragment>
+            <Row>
+            <Button variant="link" className="shopper-header-links" onClick={() => history.push(`/addnewitem/${state.user}`)}>Add New Item</Button>
             </Row>
             <Row>
-            <Button variant="link" className="jumbo-btn" onClick={() => history.push(`/addnewitem/${state.user}`)}>Add New Item</Button>
+            <Button variant="link" className="shopper-header-links" onClick={() => history.push(`/ordersummary/${state.user}`)}>Cart</Button>
             </Row>
             <Row>
-            <Button variant="link" className="jumbo-btn" onClick={() => history.push(`/ordersummary/${state.user}`)}>Cart</Button>
+            <Button variant="link" className="shopper-header-links" onClick={() => history.push(`/ordereditems/${state.user}`)}>Orders</Button>
             </Row>
-            <Row>
-            <Button variant="link" className="jumbo-btn" onClick={() => history.push(`/ordereditems/${state.user}`)}>Orders</Button>
-            </Row>
-        </Col>
-        </Jumbotron>
+            </React.Fragment> : null}
+        </Row>
+        </div>
+        <h6 className="shopper-header-note"> Note that the option to add new item, see the cart and see the orders are only available if you are logged in. Click on an item to add to cart and don't be afraid to break my app. If you find bugs, please send it to kimimaula@gmail.com</h6>   
+        </div>
     )
 }
 

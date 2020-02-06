@@ -1,25 +1,14 @@
-.AddNewItemBox {
-    min-height: 90vh
+.add-new-item-container {
+    min-height: 90vh;
 }
 
-.AddNewItemBox h1 {
-    display: flex;
-    justify-content: center;
-    margin: 0.5rem;
-    padding: 0.5rem;
-}
-
-.AddNewItemBox form {
+.add-new-item-box{
     display: flex;
     flex-direction: column;
-    margin: 0.5rem;
-    padding: 0.5rem;
-}
-
-.AddNewItemBox * {
     align-items: center;
 }
 
-.AddNewItemBox .btn {
-    width: auto;
+.error-text{
+    color: red;
+    font-weight: bold;
 }

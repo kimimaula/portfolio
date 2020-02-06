@@ -17,11 +17,16 @@
     font-weight: bold;
 }
 
+.authentication-page-box .form-control{
+    width: auto;
+}
+
+
 /* PC version */
 @media only screen and (min-width: 769px) {
     .authentication-page-box{
         max-width: 50%; 
-        margin-top: 3.25rem
+        margin-top: 5rem
         }
     .authentication-page-box button{
         margin: 0.5rem;

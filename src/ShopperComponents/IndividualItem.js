@@ -1,15 +1,27 @@
-import React, { useState } from 'react';
+import './styles/IndividualItem.css';
+import React, { useState, useEffect, useContext } from 'react';
 import ShopperJumbo from '../Components/ShopperJumbo';
 import Container from 'react-bootstrap/Container';
 import useFetch from '../hooks/useFetch';
 import { useLocation } from "react-router";
-import Card from "react-bootstrap/Card"
-import Spinner from 'react-bootstrap/Spinner'
+import Card from "react-bootstrap/Card";
+import PageSpinner from '../Components/PageSpinner';
+import Row from 'react-bootstrap/Row';
+import Button from 'react-bootstrap/Button';
+import { Context } from '../hoc/Store';
+import Alert from 'react-bootstrap/Alert';
 
 const Item = ()  => {
 
 let [amount, updatedAmount] = useState(1);
 let location = useLocation();
+const [state] = useContext(Context);
+const [loggedin, setLoggedIn] = useState(false)
+const [show, setShow] = useState(false);
+
+useEffect(()=>{
+  setLoggedIn(state.isAuthenticated)
+},[state.isAuthenticated])
 
 const [ data, loading ] = useFetch(
     `http://localhost:5000/api${location.pathname}`
@@ -33,6 +45,7 @@ function addToCart() {
         storage.push(product)
         localStorage.setItem('Cart',JSON.stringify(storage))
     }
+    setShow(true)
 }
 
 const changeHandler = (event) => {
@@ -60,13 +73,13 @@ const decreaseItem = () => {
   }
 
     return(
-        <Container>
+        <Container className="individual-item-card-container">
         <ShopperJumbo />
-        <React.Fragment>
-        { loading ? <Spinner animation="grow" variant="info" /> : 
-            <Card id = {product._id} style={{ width: '18rem' }} className="cart">
-            <Card.Img variant="top" src={`http://localhost:5000/${product.image}`} />
-            <Card.Body>
+        <React.Fragment> 
+        { loading ? <PageSpinner/> : 
+            <Card id = {product._id} className="individual-item-card">
+            <Card.Img className="individual-item-card-img" variant="top" src={`http://localhost:5000/${product.image}`} />
+            <Card.Body className="individual-item-card-body">
                 <Card.Title>{product.title}</Card.Title>
                 <Card.Text>
                  {product.description}
@@ -74,12 +87,17 @@ const decreaseItem = () => {
                 <Card.Text>
                 Price: {product.price}
                 </Card.Text>
-                <input type="price" name="price" value={amount} onChange = {changeHandler}/><p onClick = {increaseItem}> + </p> <p onClick ={decreaseItem}> - </p>
+                <Row className='individual-item-input-body'>
+                <input type="number" name="price" value={amount} onChange = {changeHandler}/><Button onClick = {increaseItem}> + </Button> <Button onClick ={decreaseItem}> - </Button>
+                </Row>
             </Card.Body>
-            <button onClick={() => addToCart()}> Add to Cart </button>
+            <Button onClick={() => addToCart()} disabled={!loggedin}> Add to Cart </Button>
             </Card>
         }
         </React.Fragment>
+        <Alert className = "added-to-cart-alert" variant="info" show={show} onClose={() => setShow(false)} dismissible>
+        <Alert.Heading>Added to Cart</Alert.Heading>
+        </Alert>
         </Container>
     )
 }

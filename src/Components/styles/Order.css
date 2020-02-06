@@ -1,51 +1,56 @@
-.order-summary-container{
+.ordered-items-container {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 0.5rem;
+    margin: 0.5rem 1rem 0 1rem;
+    max-width: 80%;
+    min-height: auto;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid grey;
     padding: 0.5rem;
 }
 
-.order-summary-container .btn-primary{
-    border-color: #6Ec0Fb;
-    background-color: #6Ec0Fb;
-    color: black;
+.ordered-items-container-info-container{
+    border: 1px solid grey;
+    padding: 0.15rem;
+}   
+
+.ordered-items-container-info-container *{
+    font-size: 1.75vh;
 }
 
-.order-summary-info-container *{
-    font-size: 90%;
-}
-
-.order-items-container{
+.ordered-items-all-container{
     display: flex;
     flex-direction: row;
-    margin: 0.2rem;
-    width: 80%;
+    margin-left: 2rem;
+    margin-top: 0.2rem;
 }
 
-.order-items-img{
-    height: 70%;
-    width: 30%;
+.ordered-items-img{
+    height: 25%;
+    width: 25%;
 }
 
-.order-items-text{
-    display: flex;
-    flex-direction: column;
-    margin-left: 0.5rem;
+.ordered-items-text * {
+    font-size: 1.5vh;
+    margin-left: 1rem;
 }
 
-.order-items-text *{
-    font-size: 70%;
-}
-
+/* PC version */
 @media only screen and (min-width: 769px) {
-    .order-summary-container{
-        flex-wrap: nowrap;
+    .ordered-items-container{
+        width: auto;
+        max-width: 100%;
+        margin-top: 2rem;
+        flex-direction: row;
+        align-items: flex-start;
     }
 
-    .order-items-container{
-        width: 70%;
+    .ordered-items-container-info-container *{
+        font-size: 2vh;
+    }
+
+    .ordered-items-img{
         height: 50%;
+        width: 50%;
     }
 }
