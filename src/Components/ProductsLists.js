@@ -1,7 +1,7 @@
 import './styles/productlists.css'
 import React from 'react'
 import Product from './Product';
-import Spinner from 'react-bootstrap/Spinner'
+import PageSpinner from '../Components/PageSpinner'
 import useFetch from '../hooks/useFetch'
 import { useHistory } from "react-router-dom";
 
@@ -15,7 +15,7 @@ const [data, loading] = useFetch(
 
   return (
     <React.Fragment>
-     {loading ? <Spinner animation="grow" variant="info" /> : data.products.map((items) => {
+     {loading ? <PageSpinner /> : data.products.map((items) => {
         return (
                <Product 
                title={items.title}
