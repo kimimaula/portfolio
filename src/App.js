@@ -1,24 +1,26 @@
 import './App.css';
 
-import React from "react";
+import React, { Suspense } from "react";
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 
 
-import Auth from './pages/Auth';
 import Store from './hoc/Store';
-import Notfound from './pages/404';
-import SignUp from './pages/Signup';
-import Profile from './pages/Profile';
 import HomePage from './pages/HomePage';
 import Header from './Components/header';
 import Footer from './Components/footer';
-import ContactPage from './pages/Contact';
-import ShoppingApp from './pages/Shopping';
-import Item from './ShopperComponents/IndividualItem';
-import AddNewItem from './ShopperComponents/AddNewItem';
-import OrderedItem from './ShopperComponents/OrderedItem';
-import OrderSummary from './ShopperComponents/OrderSummary';
-import OrderedItems from './ShopperComponents/OrderedItems';
+import PageSpinner from './Components/PageSpinner';
+
+const Auth = React.lazy(() => import('./pages/Auth'));
+const Notfound = React.lazy(() => import('./pages/404'));
+const SignUp = React.lazy(() => import('./pages/Signup'));
+const Profile = React.lazy(() => import('./pages/Profile'));
+const ContactPage = React.lazy(() => import('./pages/Contact'));
+const ShoppingApp = React.lazy(() => import('./pages/Shopping'));
+const Item = React.lazy(() => import('./ShopperComponents/IndividualItem'));
+const AddNewItem = React.lazy(() => import('./ShopperComponents/AddNewItem'));
+const OrderSummary = React.lazy(() => import('./ShopperComponents/OrderSummary'));
+const OrderedItems = React.lazy(() => import('./ShopperComponents/OrderedItems'));
+const OrderedItem = React.lazy(() => import('./ShopperComponents/OrderedItem'));
 
 
 function App() {
@@ -27,6 +29,7 @@ return (
 
 <Store>
   <Router>
+  <Suspense fallback={<PageSpinner/>}>
     <Header/>
     <Switch>
       <Route exact path="/" component={HomePage} />
@@ -43,6 +46,7 @@ return (
       <Route component={Notfound} />
     </Switch>
     <Footer/>
+    </Suspense>
   </Router>
 </Store>
 
