@@ -8,7 +8,7 @@ import { useHistory } from "react-router-dom";
 function ProductsLists () {
 
 const [data, loading] = useFetch(
-    "http://localhost:5000/api/products/"
+    `${process.env.REACT_APP_BASE_URL}/api/products/`
   );
 
   const history = useHistory();

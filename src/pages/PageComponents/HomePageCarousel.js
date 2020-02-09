@@ -16,7 +16,7 @@ const HomePageCarousel = () => {
         <Carousel.Item>
             <img
             className="home-page-image"
-            src="http://localhost:5000/images/StockSnap_ZU3GBGBBQP.jpg"
+            src={`${process.env.REACT_APP_BASE_URL}/images/StockSnap_ZU3GBGBBQP.jpg`}
             alt="First slide"
             />
             <Carousel.Caption>
@@ -27,7 +27,7 @@ const HomePageCarousel = () => {
         <Carousel.Item>
             <img
             className="home-page-image"
-            src="http://localhost:5000/images/brand.png"
+            src={`${process.env.REACT_APP_BASE_URL}/images/brand.png`}
             alt="Third slide"
             />
     
@@ -39,7 +39,7 @@ const HomePageCarousel = () => {
             <Carousel.Item>
             <img
             className="home-page-image"
-            src="http://localhost:5000/images/StockSnap_ZU3GBGBBQP.jpg"
+            src={`${process.env.REACT_APP_BASE_URL}/images/StockSnap_ZU3GBGBBQP.jpg`}
             alt="Third slide"
             />
     

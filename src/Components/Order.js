@@ -13,7 +13,7 @@ const Order = (props) => {
             </div>
             {props.orders.map((order)=> {
             return <div className="ordered-items-all-container">
-                <img className="ordered-items-img" src={`http://localhost:5000/${order.image}`} alt={order.itemname}/>
+                <img className="ordered-items-img" src={`${process.env.REACT_APP_BASE_URL}/${order.image}`} alt={order.itemname}/>
                 <div className='ordered-items-text'>
                 <h6> Item Name: {order.itemname}</h6>
                 <h6> Order Amount: {order.amount}</h6>

@@ -19,7 +19,7 @@ async function fetchData() {
     let orderData;
 
     try {
-        const response = await axios.get(`http://localhost:5000/api/orders/${user}`)
+        const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/orders/${user}`)
         orderData = response.data.Order
     } catch (error) {
         alert(error)

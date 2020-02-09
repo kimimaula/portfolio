@@ -24,7 +24,7 @@ useEffect(()=>{
 },[state.isAuthenticated])
 
 const [ data, loading ] = useFetch(
-    `http://localhost:5000/api${location.pathname}`
+    `${process.env.REACT_APP_BASE_URL}/api${location.pathname}`
 );
 
 const product = data.product;
@@ -78,7 +78,7 @@ const decreaseItem = () => {
         <React.Fragment> 
         { loading ? <PageSpinner/> : 
             <Card id = {product._id} className="individual-item-card">
-            <Card.Img className="individual-item-card-img" variant="top" src={`http://localhost:5000/${product.image}`} />
+            <Card.Img className="individual-item-card-img" variant="top" src={`${process.env.REACT_APP_BASE_URL}/${product.image}`} />
             <Card.Body className="individual-item-card-body">
                 <Card.Title>{product.title}</Card.Title>
                 <Card.Text>

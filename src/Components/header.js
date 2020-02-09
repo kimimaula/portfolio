@@ -60,7 +60,7 @@ return (
     <Navbar.Brand as={Link} to={`/`}  onClick={() => setExpanded(false)}><div className="brand-logo-container">
         <img
         className="brand-logo"
-        src="http://localhost:5000/images/logo.png"
+        src={`${process.env.REACT_APP_BASE_URL}/images/logo.png`}
         alt="First slide"
     /></div>
     </Navbar.Brand>

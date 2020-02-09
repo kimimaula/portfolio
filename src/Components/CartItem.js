@@ -7,7 +7,7 @@ function Product(props) {
 
     return (
         <Card id = {props.id} className="cart-item-card" >
-            <Card.Img className="cart-item-card-img" variant="top" src={`http://localhost:5000/${props.image}`} />
+            <Card.Img className="cart-item-card-img" variant="top" src={`${process.env.REACT_APP_BASE_URL}/${props.image}`} />
             <Card.Body className="cart-item-card-body">
                 <div>
                 <Card.Title>{props.title}</Card.Title>

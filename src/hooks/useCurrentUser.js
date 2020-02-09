@@ -9,15 +9,13 @@ function useCurrentUser(url) {
   const [error, setError] = useState();
   const [loading, setLoading] = useState();
 
-  //`http://localhost:5000/api/products/user/${data.id}`
-
   async function fetchUser() {
   setLoading(true)
   try{
     const response = await axios.get(url)
     const currentuser = response.data.currentUser[0]
-    const userProducts = await axios.get(`http://localhost:5000/api/products/user/${currentuser._id}`)
-    const userOrders = await axios.get(`http://localhost:5000/api/orders/${currentuser.username}`)
+    const userProducts = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/products/user/${currentuser._id}`)
+    const userOrders = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/orders/${currentuser.username}`)
     setData(currentuser)
     setProdData(userProducts.data)
     setOrderData(userOrders.data)

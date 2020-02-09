@@ -22,7 +22,7 @@ const [ loggedIn, setLoggedIn ] = useState(false)
 const [ prodIsEmpty, setProdIsEmpty ] = useState(true)
 const [ orderIsEmpty, setOrderIsEmpty ] = useState(true)
 const [ data, loading, error, prodData, orderData ] = useCurrentUser(
-      `http://localhost:5000/api/user/${user}`
+      `${process.env.REACT_APP_BASE_URL}/api/user/${user}`
     );
 const { username, email, image} = data
 const [state] = useContext(Context);
