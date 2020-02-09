@@ -1,8 +1,8 @@
 .product-card {
     margin: 0.5rem;
     padding: 0.5rem;
-    max-height: 25vh;
-    max-width: 35vw;
+    max-width: 40%;
+    max-height: 50%;
     align-items: center;
     -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.22);
     -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.22);
@@ -22,19 +22,26 @@
 }
 
 .product-card-body *{
-    font-size: 3vw;
+    font-size: 65%;
     display: flex;
     justify-content: center;
+    flex-wrap: nowrap;
 }
     
 @media only screen and (min-width: 769px) {
-    .product-card {
-        max-height: 30vh;
-        max-width: 15vw;
+
+    .product-card-img{
+        height: 70%;
+        width: 55%;
     }
 
     .product-card-body *{
-        font-size: 1.5vw;
+        font-size: 85%;
+    }
+
+    .product-card {
+        max-width: 30%;
+        max-height: 40%;
     }
 
 }

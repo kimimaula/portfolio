@@ -1,8 +1,8 @@
 .cart-item-card {
     margin: 0.5rem;
     padding: 0.5rem;
-    min-height: 40vh;
-    max-width: 35vw;
+    min-height: 50%;
+    max-width: 40%;
     align-items: center;
 }
 
@@ -21,7 +21,7 @@
 }
 
 .cart-item-card-body *{
-    font-size: 3vw;
+    font-size: 80%;
 }
 
 .cart-item-card-trash-icon{
@@ -30,10 +30,16 @@
     fill: red;
     align-self: center;
 }
+
+.cart-item-card-trash-icon-container{
+    height: 30%;
+}
     
 @media only screen and (min-width: 769px) {
     .cart-item-card-body *{
-        font-size: 1.5vw;
+        display: flex;
+        flex-direction: row;
+        font-size: 90%;
     }
 
     .cart-item-card-img{
@@ -42,7 +48,7 @@
     }
 
     .cart-item-card {
-        max-height: 30vh;
-        max-width: 15vw;
+        max-height: 30%;
+        max-width: 20%;
     }
 }

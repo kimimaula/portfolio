@@ -26,7 +26,7 @@ const AddNewItem = () => {
         updateIsSubmitting(true)
         formData.set('title', userData.itemname);
         formData.set('description', userData.description);
-        formData.set('price', userData.price);
+        formData.set('price', parseFloat(userData.price).toFixed(2));
         formData.append('image', image)
         
         try{
@@ -87,7 +87,7 @@ const AddNewItem = () => {
 
                 <Form.Group controlId="formItemPrice">
                     <Form.Label> Price </Form.Label>
-                    <Form.Control type="number" step="0.01" name="price" placeholder="00.00"ref={register({ required: true, pattern: /^[0-9]+([\,|\.]{0,1}[0-9]{2}){0,1}$/})} />
+                    <Form.Control type="text" name="price" placeholder="00.00"ref={register({ required: true, pattern: /^[0-9]+([\,|\.]{0,1}[0-9]{2}){0,1}$/})} />
                     {errors.price &&
                     errors.price.type === "required" &&
                     <p className="error-text">This field is required</p>}

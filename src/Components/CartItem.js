@@ -9,14 +9,14 @@ function Product(props) {
         <Card id = {props.id} className="cart-item-card" >
             <Card.Img className="cart-item-card-img" variant="top" src={`${process.env.REACT_APP_BASE_URL}/${props.image}`} />
             <Card.Body className="cart-item-card-body">
-                <div>
                 <Card.Title>{props.title}</Card.Title>
                 <Card.Text>
                 Price: {props.price} <br/>
                 Amount: {props.amount}
                 </Card.Text>
-                </div>
+                <div className="cart-item-card-trash-icon-container">
                 <Logo className="cart-item-card-trash-icon" onClick={props.delete}/>
+                </div>
             </Card.Body>
         </Card>
     )

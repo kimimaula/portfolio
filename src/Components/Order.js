@@ -10,9 +10,9 @@ const Order = (props) => {
     return(
         <div className="ordered-items-container" key={props.key}>
             <div as={Button} className="ordered-items-container-info-container">
-                <h5>Order ID : {props.id}</h5>
+                <h5>Order ID : <br/> {props.id}</h5>
                 <h5>Order Date : {props.orderdate}</h5>
-                <h5>Total Price : RM {props.totalprice}</h5>
+                <h5>Total Price : RM {parseFloat(props.totalprice).toFixed(2)}</h5>
                 <Button onClick={()=>{history.push(`/ordereditem/${props.id}`)}}> More Info </Button>
             </div>
         </div>

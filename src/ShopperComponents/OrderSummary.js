@@ -87,7 +87,7 @@ return(
                 })}
                 </div>
                 }
-                <h4> SubTotal :  RM : {totalPrice} </h4>
+                <h4> SubTotal :  RM : {parseFloat(totalPrice).toFixed(2)} </h4>
                 <Button onClick={orderNow} className="order-summary-box-button" variant="success" > Order Now </Button>
                 <Button onClick={clearOrder} className="order-summary-box-button" variant="danger" > Clear Cart </Button>
                 </React.Fragment>}
