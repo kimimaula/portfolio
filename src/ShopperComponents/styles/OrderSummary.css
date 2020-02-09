@@ -1,4 +1,4 @@
-.order-summary-container {
+.order-summary-main-container {
     display: flex;
     min-height: 90vh;
     flex-direction: row;
@@ -14,4 +14,7 @@
 
 .order-summary-box-button{
     margin: 0 0.5rem 0 0.5rem;
+}
+
+@media only screen and (min-width: 769px) {
 }

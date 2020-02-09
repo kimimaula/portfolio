@@ -20,8 +20,8 @@
 }
 
 .home-page-image{
-    max-width:100%;
-    max-height:auto;
+    width:100%;
+    height:auto;
     font-size: 16px;
     object-fit: contain;    
 }
@@ -44,4 +44,8 @@
         overflow: hidden;
         width: 100%;
     }
+
+    .home-page-image{
+        height:auto; 
     }
+}

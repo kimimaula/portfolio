@@ -37,11 +37,12 @@
     }
 
     .cart-item-card-img{
-        height: 60%;
+        height: 40%;
+        width: 50%
     }
 
     .cart-item-card {
-        max-height: 50vh;
-        max-width: 45vw;
+        max-height: 30vh;
+        max-width: 15vw;
     }
 }

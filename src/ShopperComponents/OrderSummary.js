@@ -66,9 +66,9 @@ useEffect(() => {
 
 return(
 
-    <Container className = "order-summary-container">
+    <Container className = "order-summary-main-container">
         <ShopperJumbo />
-            <Container>
+            <Container className="order-summary-container">
                 { loading ? <Spinner animation="grow" variant="info" /> : 
                 <React.Fragment>
                 <h1>Order Summary</h1>
@@ -85,9 +85,9 @@ return(
                     amount={cartItems.amount}
                     />
                 })}
-                <h4> SubTotal :  RM : {totalPrice} </h4>
                 </div>
                 }
+                <h4> SubTotal :  RM : {totalPrice} </h4>
                 <Button onClick={orderNow} className="order-summary-box-button" variant="success" > Order Now </Button>
                 <Button onClick={clearOrder} className="order-summary-box-button" variant="danger" > Clear Cart </Button>
                 </React.Fragment>}
