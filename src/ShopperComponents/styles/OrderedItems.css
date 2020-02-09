@@ -1,14 +1,19 @@
-.OrderSummaryBox {
+.ordered-items-main-container{
     display: flex;
-    min-height: 90vh;
     flex-direction: row;
+    min-height: 90vh;
     flex-wrap: wrap;
+    align-content: flex-start;
     justify-content: center;
 }
 
-.OrderSummaryBox h1 {
+.no-orders-text{
     display: flex;
-    justify-content: center;
-    margin: 0.5rem;
-    padding: 0.5rem;
+    margin: 50% 0 50% 0;
+}
+
+@media only screen and (min-width: 769px) {
+    .ordered-items-main-container{
+        justify-content: flex-start;
+    }
 }

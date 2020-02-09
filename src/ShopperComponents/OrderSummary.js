@@ -10,7 +10,7 @@ import CartItem from '../Components/CartItem'
 const OrderSummary = () => {
 let history = useHistory()
 
-var storage = localStorage.getItem('Cart'); 
+let storage = localStorage.getItem('Cart'); 
 if(storage) storage = JSON.parse(storage);
 else storage = [];
 
@@ -48,7 +48,7 @@ function deleteItem(_id) {
 };
 
 
-async function clearOrder() {
+function clearOrder() {
     update(true)
     updateCartItems([])
     localStorage.removeItem('Cart')

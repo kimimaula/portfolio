@@ -1,8 +1,8 @@
 .ordered-items-container {
     display: flex;
     margin: 0.5rem 1rem 0 1rem;
-    max-width: 80%;
-    min-height: auto;
+    width: 60%;
+    height: 20%;
     flex-direction: column;
     align-items: center;
     border: 1px solid grey;
@@ -10,7 +10,8 @@
 }
 
 .ordered-items-container-info-container{
-    border: 1px solid grey;
+    display: flex;
+    flex-direction: column;
     padding: 0.15rem;
 }   
 
@@ -35,11 +36,16 @@
     margin-left: 1rem;
 }
 
+.ordered-items-container-info-container .btn{
+    margin: 0.5rem;
+    justify-self: end;
+}
+
 /* PC version */
 @media only screen and (min-width: 769px) {
     .ordered-items-container{
-        width: auto;
-        max-width: 100%;
+        max-width: 30%;
+        height: 20%;
         margin-top: 2rem;
         flex-direction: row;
         align-items: flex-start;
@@ -47,6 +53,11 @@
 
     .ordered-items-container-info-container *{
         font-size: 2vh;
+    }
+
+    .ordered-items-container-info-container .btn{
+        margin: 0.5rem;
+        align-self: flex-end;
     }
 
     .ordered-items-img{

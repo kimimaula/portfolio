@@ -8,7 +8,7 @@ const Shopping = () => {
 
 
         return(
-            <Container className="ShoppingBox">
+            <Container className="shopper-box">
                 <ShopperJumbo />
                 <ProductLists />
             </Container>

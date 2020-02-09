@@ -1,6 +1,13 @@
-.ShoppingBox {
+.shopper-box {
     display: flex;
     min-height: 90vh;
     flex-wrap: wrap;
     justify-content: center;
+    
+}
+
+@media only screen and (min-width: 769px) {
+.shopper-box {
+    justify-content: flex-start;
+    }
 }

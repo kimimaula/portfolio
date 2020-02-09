@@ -1,25 +1,29 @@
-import "./styles/AddNewItem.css"
-import React, { useState } from 'react'
-import Container from 'react-bootstrap/Container'
-import Card from 'react-bootstrap/Card'
+import "./styles/AddNewItem.css";
+import React, { useState } from 'react';
+import Container from 'react-bootstrap/Container';
+import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import ShopperJumbo from '../Components/ShopperJumbo'
+import ShopperJumbo from '../Components/ShopperJumbo';
 import axios from "axios";
 import { useParams } from 'react-router-dom';
-import { useForm } from 'react-hook-form'
-import Thumb from '../Components/Thumb'
-import Row from 'react-bootstrap/Row'
-import Form from 'react-bootstrap/Form'
+import { useForm } from 'react-hook-form';
+import Thumb from '../Components/Thumb';
+import Row from 'react-bootstrap/Row';
+import Form from 'react-bootstrap/Form';
+import Spinner from 'react-bootstrap/Spinner';
+import Alert from 'react-bootstrap/Alert'
 
 const AddNewItem = () => {
 
     const user = useParams().user;
     const formData =  new FormData();
     const [image, setImage] = useState()
+    const [show, setShow] = useState(false);
     const { register, handleSubmit, errors } = useForm()
     const [ isSubmitting , updateIsSubmitting ] = useState(false)
 
     const onSubmit = async userData => {
+        updateIsSubmitting(true)
         formData.set('title', userData.itemname);
         formData.set('description', userData.description);
         formData.set('price', userData.price);
@@ -33,9 +37,12 @@ const AddNewItem = () => {
               })
             .then( response => {    
                 console.log(response.status)
+                updateIsSubmitting(false)
+                setShow(true)
                  });
         } catch (err) {
             alert(err.message)
+            updateIsSubmitting(false)
                     }
     } 
 
@@ -64,7 +71,7 @@ const AddNewItem = () => {
                     </Form.Text>
                 </Form.Group>
 
-                <Form.Group controlId="formItemName">
+                <Form.Group controlId="formItemDescription">
                     <Form.Label> Description </Form.Label>
                     <Form.Control type="text" as="textarea" rows="4" placeholder="Enter Description" name="description" ref={register({ required: true, minLength : 100 })} />
                     {errors.description &&
@@ -78,7 +85,7 @@ const AddNewItem = () => {
                     </Form.Text>
                 </Form.Group>
 
-                <Card.Text>
+                <Form.Group controlId="formItemPrice">
                     <Form.Label> Price </Form.Label>
                     <Form.Control type="number" name="price" placeholder="00.00"ref={register({ required: true, pattern: /^[0-9]+([\,|\.]{0,1}[0-9]{2}){0,1}$/})} />
                     {errors.price &&
@@ -90,8 +97,9 @@ const AddNewItem = () => {
                     <Form.Text className="text-muted">
                     Only valid prices can be used
                     </Form.Text>
-                </Card.Text>
-                <Card.Text>
+                </Form.Group>
+
+                <Form.Group controlId="formItemImage">
                     <Form.Label> Image </Form.Label>
                     <Form.Control type ="file" name="file" ref={register({ required: true})} onChange={handleChange}/>
                     {errors.file &&
@@ -100,13 +108,25 @@ const AddNewItem = () => {
                     <Form.Text className="text-muted">
                     Only jpeg, jpg and png will upload, any others will throw errors
                     </Form.Text>
-                </Card.Text>
+                </Form.Group>
+
                 <Thumb file={image}/>
                 <Row>
-                <Button type="submit"> SUBMIT ITEM </Button>
+                {isSubmitting? <Button variant="primary" disabled>
+                        <Spinner
+                        as="span"
+                        animation="border"
+                        size="sm"
+                        role="status"
+                        aria-hidden="true"
+                            /> </Button> : 
+                <Button type="submit"> SUBMIT ITEM </Button>}
                 </Row>
                 </Form>
             </Card>
+            <Alert className = "added-to-cart-alert" variant="info" show={show} onClose={() => setShow(false)} dismissible>
+            <Alert.Heading>New Item Added</Alert.Heading>
+            </Alert>
 </Container>
         )
 }

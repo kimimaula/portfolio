@@ -2,16 +2,14 @@ import "./styles/OrderedItems.css"
 import React, { useState, useEffect } from 'react'
 import Container from 'react-bootstrap/Container'
 import ShopperJumbo from '../Components/ShopperJumbo'
-import useFetch from '../hooks/useFetch';
 import { useParams } from 'react-router-dom';
-import Spinner from 'react-bootstrap/Spinner'
+import PageSpinner from '../Components/PageSpinner'
 import axios from "axios";
 import Order from "../Components/Order";
 
-const AddOrderItem = () => {
+const OrderedItems = () => {
 
-const user = useParams().user;
-
+const User = useParams().user;
 const [data, setData] = useState([]);
 const [loading, setLoading] = useState(true);
 
@@ -19,14 +17,20 @@ async function fetchData() {
     let orderData;
 
     try {
-        const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/orders/${user}`)
+        const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/orders/${User}`)
         orderData = response.data.Order
     } catch (error) {
         alert(error)
     }
 
-    setData(orderData);
-    setLoading(false);
+    if (orderData && orderData.length > 0) {
+        setData(orderData);
+        setLoading(false);
+    }   else {
+        setData(false);
+        setLoading(false);
+    }
+
 }
 
 useEffect(() => {
@@ -34,18 +38,16 @@ useEffect(() => {
   }, []);
 
 return (
-        <Container className = "AddOrderItemBox">
+        <Container className = "ordered-items-main-container">
         <ShopperJumbo />
-        { !data? <h1>no items</h1> : loading? <Spinner animation="grow" variant="info" /> : 
+        { !data? <h3 className='no-orders-text'>No orders yet</h3> : loading? <PageSpinner /> : 
             data.map((orderItem) => {
                 return <Order
                 id={orderItem._id}
                 clicked={()=> null}
                 orderdate={orderItem.orderdate}
                 totalprice={orderItem.totalprice}
-                orders={orderItem.orders}
                 key={orderItem._id}
-                eventkey={orderItem}
                 />
             })
         } 
@@ -53,4 +55,4 @@ return (
     )
 }
 
-export default AddOrderItem;
+export default OrderedItems;

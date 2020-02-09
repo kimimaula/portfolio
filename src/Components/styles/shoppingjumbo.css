@@ -1,6 +1,5 @@
 .shopper-header{
     margin-top: 6rem;
-    width: 100%;
 }
 
 .shopper-header h3{
@@ -30,5 +29,7 @@
 
 /* PC version */
 @media only screen and (min-width: 769px) {
-    
+    .shopper-header{
+        margin-top: 6rem
+    }
 }

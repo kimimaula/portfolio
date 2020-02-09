@@ -15,14 +15,12 @@ const HomePageAccordion = () => {
             <h6><strong>Fully Implemented Authentication system</strong></h6>
                 <ul>
                     <li>Certain features are only available when you are logged in</li>
-                    <li>Edit your dashboard</li>
-                    <li>You are only able to delete products that belong to you</li>
+                    <li>View your dashboard</li>
                     <li>Even if the frontend is hacked, only a valid token issued when you log in enables update/changes</li>
                 </ul>
             <h6><strong>Working Shopping System</strong></h6>
                 <ul>
                     <li>Adding a new product so other users can see</li>
-                    <li>Deleting that product</li>
                     <li>Adding products to a cart and editing cart</li>
                     <li>Ordering Products</li>
                 </ul>
@@ -87,13 +85,41 @@ const HomePageAccordion = () => {
         <Card.Body>
         <h6><strong>Front End</strong></h6>
             <ul>
-                <li><strong>Improve in design</strong></li>
-                    <ul>
-                        <li>Fonts</li>
-                        <li>UI/UX design</li>
-                    </ul>
-                <li>Add ability to edit products (currently only editing API exists in the backend)</li>
-                <li>A Personality Quiz</li>
+                <li><strong>Improvements to come</strong></li>
+                <ul>
+                    <li>Improve UI/UX design</li>
+                    <li>Add Timeout if fetch/post request fail</li>
+                    <li>Improve Error modal message to specify in username and password page</li>
+                    <li>Improve Error modal to show if file is not png, jpg or jpeg and show size error</li>
+                    <li>improve alert when account is created</li>
+                    <li>improve error message codes</li>
+                    <li>a contact page with a form where you can leave your details</li>
+                    <li>clean up assets folder</li>
+                    <li>clean up server redundant images</li>
+                    <li>remove the ability for users to buy their own products</li>
+                    <li>improve schema for the users on the backend</li>
+                    <li>improve fetching when params not available yet</li>
+                    <li>refactor axios fetches to be more lean</li>
+                    <li>better responsive design for tablets</li>
+                    <li>image cropper when user adding images</li>
+                    <li>clean up profile page code to be leaner</li>
+                    <li>clear all pages when the user logs out</li>
+                    <li>make the profile display more scaleable for large amounts of items</li>
+                    <li>fix page loading order - when profile page loads up it shows error first</li>
+                    <li>profile page - fix some errors where axios fetching unused data and return error</li>
+                    <li>add links to order items to redirect to product page</li>
+                    <li>fix order date</li>
+                    <li>improve orders accordion</li>
+                    <li>shooper page is showing all options when logged out automatically</li>
+                    <li>give ability to add amount of items for vendors</li>
+                    <li>cart page - more scaleable for all phones</li>
+                    <li>improve ui for ordered items</li>
+                    <li>add logic in backend when item deleted</li>
+                    <li>test behavior when more items are added to cart and orders</li>
+                    <li>set orientation to be only vertical</li>
+                    <li>Add ability to edit products (currently only editing API exists in the backend)</li>
+                    <li>A Personality Quiz</li>
+                </ul>
             </ul>
         </Card.Body>
         </Accordion.Collapse>

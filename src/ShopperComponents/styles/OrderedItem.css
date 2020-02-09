@@ -1,0 +1,8 @@
+.ordered-item-main-container{
+    min-height: 90vh;
+}
+
+@media only screen and (min-width: 769px) {
+    .ordered-items-main-container{
+    }
+}

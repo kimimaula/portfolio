@@ -1,26 +1,20 @@
 import './styles/Order.css'
 import React from 'react';
-import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button';
+import { useHistory } from 'react-router-dom';
 
 const Order = (props) => {
 
+    let history = useHistory()
+
     return(
-        <div className="ordered-items-container">
-            <div as={Button} className="ordered-items-container-info-container" eventKey={props.eventkey}>
+        <div className="ordered-items-container" key={props.key}>
+            <div as={Button} className="ordered-items-container-info-container">
                 <h5>Order ID : {props.id}</h5>
                 <h5>Order Date : {props.orderdate}</h5>
                 <h5>Total Price : RM {props.totalprice}</h5>
+                <Button onClick={()=>{history.push(`/ordereditem/${props.id}`)}}> More Info </Button>
             </div>
-            {props.orders.map((order)=> {
-            return <div className="ordered-items-all-container">
-                <img className="ordered-items-img" src={`${process.env.REACT_APP_BASE_URL}/${order.image}`} alt={order.itemname}/>
-                <div className='ordered-items-text'>
-                <h6> Item Name: {order.itemname}</h6>
-                <h6> Order Amount: {order.amount}</h6>
-                <h6>RM{order.price}</h6>
-                </div>
-            </div>
-                })}
         </div>
     )
 }

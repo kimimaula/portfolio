@@ -16,6 +16,7 @@ import ContactPage from './pages/Contact';
 import ShoppingApp from './pages/Shopping';
 import Item from './ShopperComponents/IndividualItem';
 import AddNewItem from './ShopperComponents/AddNewItem';
+import OrderedItem from './ShopperComponents/OrderedItem';
 import OrderSummary from './ShopperComponents/OrderSummary';
 import OrderedItems from './ShopperComponents/OrderedItems';
 
@@ -38,6 +39,7 @@ return (
       <Route exact path="/addnewitem/:user" component={AddNewItem} />
       <Route exact path="/ordersummary/:user" component={OrderSummary} />
       <Route exact path="/ordereditems/:user" component={OrderedItems} />
+      <Route exact path="/ordereditem/:orderid" component={OrderedItem} />
       <Route component={Notfound} />
     </Switch>
     <Footer/>

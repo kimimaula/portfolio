@@ -3,6 +3,12 @@
     overflow: hidden;
 }
 
+.fixed-top{
+    -webkit-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.22);
+    -moz-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.22);
+    box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.22);
+}
+
 .header-item{
     padding: 0.1rem;
     margin: 0.1rem 0.5rem;

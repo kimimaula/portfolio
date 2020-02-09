@@ -27,10 +27,13 @@
     border: 1px solid black;
  }
 
-.individual-item-card-img{
-
-}
-
 .individual-item-card-body *{
     font-size: 75%;
+}
+
+@media only screen and (min-width: 769px) {
+    .individual-item-card{
+        height: 100%;
+        width: 100%;
+    }
 }
