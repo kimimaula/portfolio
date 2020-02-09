@@ -33,7 +33,16 @@
 
 @media only screen and (min-width: 769px) {
     .individual-item-card{
-        height: 100%;
-        width: 100%;
+        height: 70%;
+        width: 70%;
+    }
+
+    .individual-item-input-body{
+        justify-content: flex-start;
+    }
+
+    .individual-item-card-body *{
+        font-size: 100%;
+        margin: 0.5rem;
     }
 }
