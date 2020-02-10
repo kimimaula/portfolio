@@ -14,8 +14,8 @@ function Product(props) {
                 Price: {props.price} <br/>
                 Amount: {props.amount}
                 </Card.Text>
-                <div className="cart-item-card-trash-icon-container">
-                <Logo className="cart-item-card-trash-icon" onClick={props.delete}/>
+                <div className="cart-item-card-trash-icon-container" onClick={props.delete}>
+                <Logo className="cart-item-card-trash-icon" /> <h6> Delete <br/>Item</h6>
                 </div>
             </Card.Body>
         </Card>
