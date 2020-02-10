@@ -36,7 +36,6 @@ const AddNewItem = () => {
                 data: formData,
               })
             .then( response => {    
-                console.log(response.status)
                 updateIsSubmitting(false)
                 setShow(true)
                  });

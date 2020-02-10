@@ -1,0 +1,28 @@
+.carousel-main-container{
+    width: 100%;
+    height: 300px;
+}
+
+.home-page-image{
+    height: 300px;
+    width: 100%;
+}
+
+@media only screen and (min-width: 769px) {
+
+    .carousel-item-container{
+        width: 100%;
+        height: 100%;
+    }
+
+    .home-page-image{
+        height: 850px;
+        width: 100%;
+    }
+
+    .carousel-main-container{
+        width: 100%;
+        height: 850px;
+    }
+
+}

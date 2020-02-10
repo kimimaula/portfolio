@@ -1,29 +1,6 @@
 .home-page{
     min-height: 100vh;
-    margin-top: 3.25rem;
-}
-
-.carousel-caption{
-    color: black;
-}
-
-.carousel {
-    width: 100%;
-    height: auto;
-    margin: auto;
-  }
-
-.carousel-item{
-    height: 250px;
-    overflow: hidden;
-    width: 100%;
-}
-
-.home-page-image{
-    width:100%;
-    height:auto;
-    font-size: 16px;
-    object-fit: contain;    
+    margin-top: 6rem;
 }
 
 .card-accordian{
@@ -34,18 +11,10 @@
 }
 
 .card-accordian .card-body{
-    font-size: 13px;
+    font-size: 12px;
 }
 
 /* PC version */
 @media only screen and (min-width: 769px) {
-    .carousel-item{
-        height: 600px;
-        overflow: hidden;
-        width: 100%;
-    }
 
-    .home-page-image{
-        height:auto; 
-    }
 }

@@ -33,10 +33,9 @@ function orderNow() {
          totalprice : totalPrice,
          orders : [...order]
         })
-        .then( response => console.log(response))
+        .then( response => alert('Item Ordered'))
         .catch( error => console.log( error ))
     clearOrder()
-    history.push("/ordereditems/:user")
 };
 
 function deleteItem(_id) {
