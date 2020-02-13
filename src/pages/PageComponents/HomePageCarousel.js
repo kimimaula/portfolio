@@ -17,7 +17,7 @@ const HomePageCarousel = () => {
         <Carousel.Item className="carousel-item-container">
             <img
             className="home-page-image"
-            src={`${process.env.REACT_APP_BASE_URL}/images/carousel-image-1-edited.jpg`}
+            src={`${process.env.REACT_APP_BASE_URL}/images/carousel-image-1.png`}
             alt="First slide"
             />
         </Carousel.Item>
@@ -25,7 +25,7 @@ const HomePageCarousel = () => {
         <Carousel.Item className="carousel-item-container">
             <img
             className="home-page-image"
-            src={`${process.env.REACT_APP_BASE_URL}/images/carousel-image-2-edited.jpg`}
+            src={`${process.env.REACT_APP_BASE_URL}/images/carousel-image-2.png`}
             alt="Third slide"
             />
             </Carousel.Item>
@@ -33,7 +33,7 @@ const HomePageCarousel = () => {
         <Carousel.Item className="carousel-item-container">
             <img
             className="home-page-image"
-            src={`${process.env.REACT_APP_BASE_URL}/images/carousel-image-3-edited.jpg`}
+            src={`${process.env.REACT_APP_BASE_URL}/images/carousel-image-3.png`}
             alt="Third slide"
             />
         </Carousel.Item>

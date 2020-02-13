@@ -47,7 +47,7 @@
     font-size: small;
 }
 
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 768px) {
     .single-ordered-items-main-info-container {
         width: 30%;
     }

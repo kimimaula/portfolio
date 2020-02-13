@@ -1,3 +1,4 @@
+import './styles/HomePageAccordion.css'
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Accordion from 'react-bootstrap/Accordion';
@@ -5,12 +6,82 @@ import Accordion from 'react-bootstrap/Accordion';
 const HomePageAccordion = () => {
 
     return(
-        <Accordion>
+    <Accordion>
+
     <Card className="card-accordian">
         <Accordion.Toggle as={Card.Header} eventKey="0">
-        <strong>Website Features</strong>
+        <strong>Resume</strong>
         </Accordion.Toggle>
         <Accordion.Collapse eventKey="0">
+        <Card.Body>
+        <h6><strong>Self-Taught Web Developer | MERN</strong></h6>
+        <p>Aug 2019 – Present</p>
+        <ul>
+            <li>Spent the last few months learning JavaScript. </li>
+            <li>Visit my demo page at https://my-prof-19a8f.web.app/</li>
+            <li>Willing and eager to learn more.</li>
+            <li>Definitely not perfect but I am improving from day to day!</li>
+            <li>What I lack with experience, I make up with a strong dedication and thirst for knowledge</li>
+            <li>Spends more than 8 hours a day learning while doing some side jobs to sustain myself in order to pursue my dream</li>
+        </ul>
+
+        <h6><strong>Recruiting Coordinator / Sourcing Specialist Randstad USA  |  Kuala Lumpur, Malaysia (Retrenchment) </strong></h6>
+        <p>Mar 2019 – July 2019</p>
+        <h6><strong>Honeywell Research </strong></h6>
+        <ul>
+        <li>Finding and sourcing resumes for Honeywell USA regarding their competitor for IT and engineering roles</li>
+        <ul>
+        <li>Roles Include items such as IT Cyber Security and GDPR Compliance in the automotive industries</li>
+        <li>Also includes engineering roles such as Test Engineer, Mechanical Automotive Engineering, Lidar Engineer and QA Engineer as well as team leads.</li>
+        <li>Basic minimum requirement usually involve knowledge on either Matlab, Autocad or C++ depending on the area of Engineering.
+        Recruitment Coordinator, Whirlpool </li>
+        <li>Send and check candidates background checks, while performing other administrative duties</li>
+        </ul>
+        <li>Ensure all documents completed before onboarding candidates</li>
+        <li>Contact candidate to ensure timely completion of all documents</li>
+        </ul>
+
+        <h6><strong> EvolusiTech Administrator</strong></h6> 
+        <p>July 2017 – January 2019 (Retrenchment)</p>
+        <h6><strong>Retail and dropship business model for gadgets, phones and laptops, and bitcoin mining</strong></h6> 
+        <ul>
+        <li>Running a business - Manage day to day accounting (inventories, returns, shipping)</li>
+        <li>Customer service – deals with customers who complain regarding faulty products</li>
+        <li>Vendor management – Deal with more than not – very agressive vendors which requires high level of meticulousness and patience</li>
+        <li>Analysis – Analyze market trends to make a projection of the next item to be ordered and shipped</li>
+        <li>Monitor daily development of bitcoin prices and control selling and buying</li>
+        <li>Source for potential buyers of Bitcoin and assist in buying and selling</li>
+        </ul>
+
+        <h6><strong>Agoda.com 
+        Customer Service Specialist (Quality and Assurance) </strong></h6> 
+        <p>July 2016 – July 2017 (Contractual Basis)</p>
+        <ul>
+        <p>Being in a contact center, the scopes of the job is more challenging than that of a call center. as it requires the skills below:</p>
+        <li>Multitasking -Multitasking is the most important skill as we do not only handle huge amounts of calls, but emails as well at the same time -The aspect above makes the job more challenging as I am required to multitask with efficiency and accuracy </li>
+        <li>Time management - Records of SLA and productivity are extremely accurate, hence self time management is important</li>
+        <li>Problem Solving -Guests do not call in when they do not encounter a problem, hence as customer service specialists, we are given the capability to extend our help as we see fit, as each agent is independent and quick on their feet </li>
+        <li>Independent -We do not consult for most of our issues, rather we have a database containing all the knowledge and each agent is expected to be independent and justify the reasons for each of their actions</li>
+        <li>Time management - Records of SLA and productivity are extremely accurate, hence self time management is important to ensure</li>
+        <li>Data Analysis and reporting -Analyses data of KPI to ascertain root causes of problems -Sends out daily reports of agent performance</li>
+        <p>Achievements, Accomplishments and Projects so far</p> 
+        <li>Exceedeed management expectation for Service Level Agreement as well as customer satisfaction </li>
+        <li>Ping Task - being given the responsibility to assist new hires on their queries and assist o improve new hires on SLA and KPI achievement </li>
+        <li>Quality Assurance and Compliance Monitoring </li>
+        <li>Coaching and training Customer Service agents for service improvement</li>
+        <li>Exceeded management expectations for hours spent on the job </li>
+        <li>No emergency leaves / lateness </li>
+        </ul>
+
+        </Card.Body>
+        </Accordion.Collapse>
+    </Card>
+
+    <Card className="card-accordian">
+        <Accordion.Toggle as={Card.Header} eventKey="1">
+        <strong>Website Features</strong>
+        </Accordion.Toggle>
+        <Accordion.Collapse eventKey="1">
         <Card.Body>
             <h6><strong>Fully Implemented Authentication system</strong></h6>
                 <ul>
@@ -41,10 +112,10 @@ const HomePageAccordion = () => {
         </Accordion.Collapse>
     </Card>
     <Card className="card-accordian">
-        <Accordion.Toggle as={Card.Header} eventKey="1">
+        <Accordion.Toggle as={Card.Header} eventKey="2">
         <strong>What was it built with?</strong>
         </Accordion.Toggle>
-        <Accordion.Collapse eventKey="1">
+        <Accordion.Collapse eventKey="2">
         <Card.Body>
         <h6><strong>MERN Stack (Mongo, Express, Node, React)</strong></h6>
         <h6><strong>Front End</strong></h6>
@@ -79,10 +150,10 @@ const HomePageAccordion = () => {
         </Accordion.Collapse>
     </Card>
     <Card className="card-accordian">
-        <Accordion.Toggle as={Card.Header} eventKey="2">
+        <Accordion.Toggle as={Card.Header} eventKey="3">
         <strong>More Features Coming Soon!</strong>
         </Accordion.Toggle>
-        <Accordion.Collapse eventKey="2">
+        <Accordion.Collapse eventKey="3">
         <Card.Body>
         <h6><strong>Front End</strong></h6>
             <ul>
@@ -126,10 +197,10 @@ const HomePageAccordion = () => {
         </Accordion.Collapse>
     </Card>
     <Card className="card-accordian">
-        <Accordion.Toggle as={Card.Header} eventKey="3">
+        <Accordion.Toggle as={Card.Header} eventKey="4">
         <strong>About Me</strong>
         </Accordion.Toggle>
-        <Accordion.Collapse eventKey="3">
+        <Accordion.Collapse eventKey="4">
         <Card.Body>
         <h6><strong>My name is Kimmi</strong></h6>
         <h6><i>"I was once in a pit of despair, until I learned to code" - Kimmi</i></h6>
@@ -137,6 +208,7 @@ const HomePageAccordion = () => {
                 <li>Self-Taught Developer</li>
                 <li>Friendly</li>
                 <li>Hardworking</li>
+                <li>Adaptive</li>
                 <li>Eager to learn</li>
             </ul>
         <p>I spend the last 4 months learning Javascript and React JS. When my precious company decided to cut costs and move to india, I had thought that was it, I didn't know what to do with my life anymore. I had little left to lose and it just felt like a pit of despair that I was not going to get out of.</p>
@@ -149,10 +221,10 @@ const HomePageAccordion = () => {
         </Accordion.Collapse>
     </Card>
     <Card className="card-accordian">
-        <Accordion.Toggle as={Card.Header} eventKey="4">
+        <Accordion.Toggle as={Card.Header} eventKey="5">
         <strong>How to use this website?</strong>
         </Accordion.Toggle>
-        <Accordion.Collapse eventKey="4">
+        <Accordion.Collapse eventKey="5">
         <Card.Body>
         <h6><strong>Shopper</strong></h6>
         <p>You can jump right in by signing up. The reason that you need to sign up and log in is that certain features will only appear once you have logged in. Check it out. Click on Shopper without logging in and you will only see the current products on sale. If you click on an item, you will not have the ability to add items to cart</p>
@@ -162,6 +234,21 @@ const HomePageAccordion = () => {
         </Card.Body>
         </Accordion.Collapse>
     </Card>
+
+    <Card className="card-accordian">
+        <Accordion.Toggle as={Card.Header} eventKey="6">
+        <strong>TL : DR </strong>
+        </Accordion.Toggle>
+        <Accordion.Collapse eventKey="6">
+        <Card.Body>
+        <p> - A Demo page - click on shopper to get started</p>
+        <p> - Looking out for opportunities</p>
+        <p> - Page is new and experimental</p>
+        <p> - Few bug fixes and features to come soon</p>
+        </Card.Body>
+        </Accordion.Collapse>
+    </Card>
+
     </Accordion>
     )  
 }

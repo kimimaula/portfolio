@@ -29,7 +29,7 @@
     justify-content: center;
 }
 
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 768px) {
     .carousel-item{
         margin-top: 5rem;
     }

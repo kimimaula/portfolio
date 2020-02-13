@@ -1,0 +1,18 @@
+.card-accordian{
+    margin: 1rem 0 1rem 0;
+    background-color: #6Ec0Fb;
+    opacity: 0.9;
+}
+
+.card-accordian .card-body{
+    font-size: 12px;
+}
+
+/* PC version */
+@media only screen and (min-width: 768px) {
+    .card-accordian{
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

@@ -55,6 +55,12 @@ function logout (){
         history.push('/login')
 }
 
+var backgroundImage = {
+    width: "100%",
+    height: "5rem",
+    backgroundImage: `url("${process.env.REACT_APP_BASE_URL}/images/background-photo.jpeg")`
+  };
+
 return (
     <Navbar onToggle={()=>setExpanded(!expanded)} expanded={expanded} bg="light" variant="light" expand="lg" fixed="top">
     <Navbar.Brand as={Link} to={`/`}  onClick={() => setExpanded(false)}><div className="brand-logo-container">

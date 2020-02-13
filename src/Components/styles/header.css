@@ -1,6 +1,5 @@
-.bg-primary{
-    height: 3.25rem;
-    overflow: hidden;
+.bg-light{
+    background-image: url("https://images.pexels.com/photos/304664/pexels-photo-304664.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
 }
 
 .fixed-top{
@@ -44,8 +43,17 @@
     cursor: pointer;
 }
 
+.navbar-light .navbar-nav .nav-link{
+    color: #6Ec0Fb;
+}
+
+.navbar-light .navbar-text{
+    color: #6Ec0Fb;
+}
+
 /* PC version */
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 768px) {
     .auth{margin-left: auto}
     .btn-primary{width: auto}
+    .bg-light{background-color: blue !important;}
     }

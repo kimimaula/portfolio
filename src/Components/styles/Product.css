@@ -28,7 +28,7 @@
     flex-wrap: nowrap;
 }
     
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 768px) {
 
     .product-card-img{
         height: 150px;
