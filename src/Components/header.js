@@ -56,7 +56,7 @@ function logout (){
 }
 
 return (
-    <Navbar onToggle={()=>setExpanded(!expanded)} expanded={expanded} bg="light" variant="light" expand="lg" fixed="top">
+    <Navbar onToggle={()=>setExpanded(!expanded)} expanded={expanded} bg="light" variant="light" expand="lg" fixed="top" className="main-header">
     <Navbar.Brand as={Link} to={`/`}  onClick={() => setExpanded(false)}><div className="brand-logo-container">
         <img
         className="brand-logo"

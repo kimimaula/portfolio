@@ -139,12 +139,19 @@ const HomePageAccordion = () => {
                 <ul>
                     <li>MongoDB as database</li>
                     <li>Express</li>
-                    <li>Mongoose</li>
+                    <li>Mongoose ORM</li>
                     <li>Multer</li>
                     <li>BCrypt</li>
                     <li>jsonwebtoken</li>
                     <li>connect-busboy</li>
                     <li>express-formidable</li>
+                </ul>
+        <h6><strong>Deploy</strong></h6>
+            <li><strong>App Deployment</strong></li>
+                <ul>
+                    <li>Front End : Firebase</li>
+                    <li>Server : Heroku</li>
+                    <li>Databse : MongoDB</li>
                 </ul>
         </Card.Body>
         </Accordion.Collapse>
@@ -204,11 +211,12 @@ const HomePageAccordion = () => {
         </Accordion.Toggle>
         <Accordion.Collapse eventKey="4">
         <Card.Body>
-        <h6><strong>Front End</strong></h6>
+        <h6><strong>Changelogs/Updates</strong></h6>
             <ul>
                 <li><strong>Changelog 16/2/2019</strong></li>
                 <ul>
-                    <li>Images now hosted on AWS S3 so image will persist</li>
+                    <li>Major Changes to UI</li>
+                    <li>Images now hosted on AWS S3 so image will persist</li>  
                 </ul>
             </ul>
         </Card.Body>

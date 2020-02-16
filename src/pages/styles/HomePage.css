@@ -1,9 +1,15 @@
 .home-page{
     min-height: 100vh;
-    margin-top: 6rem;
+    margin-top: 5rem;
+    padding-bottom: 2rem;
+    background-image: url("https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 /* PC version */
 @media only screen and (min-width: 768px) {
-
+    .home-page{
+        margin-top: 5rem;
+    }
 }

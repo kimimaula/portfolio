@@ -15,4 +15,8 @@
         margin-left: auto;
         margin-right: auto;
     }
+
+    .accordion {
+        margin-top: 2rem;
+    }
 }

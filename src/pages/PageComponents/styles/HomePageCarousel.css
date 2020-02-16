@@ -2,6 +2,7 @@
     width: 100%;
     height: 300px;
     margin: auto;
+    
 }
 
 .home-page-image{
@@ -12,18 +13,19 @@
 @media only screen and (min-width: 768px) {
 
     .carousel-item-container{
+        margin-top: 1rem;
         width: 100%;
         height: auto;
     }
 
     .home-page-image{
-        height: 700px;
-        width: 100%;
+        height: 500px;
+        width: 600px;
     }
 
     .carousel-main-container{
-        width: 60%;
-        height: 700px;
+        width: 600px;
+        height: 500px;
     }
 
 }

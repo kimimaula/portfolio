@@ -1,4 +1,6 @@
 .bg-light{
+    min-height: 5rem;
+    max-height: 20rem;
     background-image: url("https://images.pexels.com/photos/304664/pexels-photo-304664.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
 }
 
@@ -55,5 +57,5 @@
 @media only screen and (min-width: 768px) {
     .auth{margin-left: auto}
     .btn-primary{width: auto}
-    .bg-light{background-color: blue !important;}
+    .bg-light{height: 5rem;}
     }
