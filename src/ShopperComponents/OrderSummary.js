@@ -1,14 +1,12 @@
 import "./styles/OrderSummary.css";
 import React, { useState, useEffect } from 'react';
-import { Container, Button, Row, Col } from 'react-bootstrap';
+import { Container, Button } from 'react-bootstrap';
 import ShopperJumbo from '../Components/ShopperJumbo';
 import Spinner from 'react-bootstrap/Spinner';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
 import CartItem from '../Components/CartItem'
 
 const OrderSummary = () => {
-let history = useHistory()
 
 let storage = localStorage.getItem('Cart'); 
 if(storage) storage = JSON.parse(storage);

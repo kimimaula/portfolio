@@ -21,9 +21,11 @@ const user = useParams().user;
 const [ loggedIn, setLoggedIn ] = useState(false)
 const [ prodIsEmpty, setProdIsEmpty ] = useState(true)
 const [ orderIsEmpty, setOrderIsEmpty ] = useState(true)
+
 const [ data, loading, error, prodData, orderData ] = useCurrentUser(
       `${process.env.REACT_APP_BASE_URL}/api/user/${user}`
     );
+    
 const { username, email, image} = data
 const [state] = useContext(Context);
 

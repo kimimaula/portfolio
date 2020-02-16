@@ -13,7 +13,7 @@ const Avatar = (props) => {
 
     return(
         <Container className="avatar-container">
-        <Image className="avatar-img" src={`${process.env.REACT_APP_BASE_URL}/${image}`} roundedCircle/>
+        <Image className="avatar-img" src={`${process.env.REACT_APP_BASE_URL}/aws/${image}`} roundedCircle/>
         </Container>
     )
 }

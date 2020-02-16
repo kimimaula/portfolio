@@ -78,7 +78,7 @@ const decreaseItem = () => {
         <React.Fragment> 
         { loading ? <PageSpinner/> : 
             <Card id = {product._id} className="individual-item-card">
-            <Card.Img className="individual-item-card-img" variant="top" src={`${process.env.REACT_APP_BASE_URL}/${product.image}`} />
+            <Card.Img className="individual-item-card-img" variant="top" src={`${process.env.REACT_APP_BASE_URL}/aws/${product.image}`} />
             <Card.Body className="individual-item-card-body">
                 <Card.Title>{product.title}</Card.Title>
                 <Card.Text>

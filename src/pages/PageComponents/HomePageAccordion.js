@@ -149,6 +149,7 @@ const HomePageAccordion = () => {
         </Card.Body>
         </Accordion.Collapse>
     </Card>
+
     <Card className="card-accordian">
         <Accordion.Toggle as={Card.Header} eventKey="3">
         <strong>More Features Coming Soon!</strong>
@@ -196,11 +197,29 @@ const HomePageAccordion = () => {
         </Card.Body>
         </Accordion.Collapse>
     </Card>
+
     <Card className="card-accordian">
         <Accordion.Toggle as={Card.Header} eventKey="4">
-        <strong>About Me</strong>
+        <strong>Changelog</strong>
         </Accordion.Toggle>
         <Accordion.Collapse eventKey="4">
+        <Card.Body>
+        <h6><strong>Front End</strong></h6>
+            <ul>
+                <li><strong>Changelog 16/2/2019</strong></li>
+                <ul>
+                    <li>Images now hosted on AWS S3 so image will persist</li>
+                </ul>
+            </ul>
+        </Card.Body>
+        </Accordion.Collapse>
+    </Card>
+
+    <Card className="card-accordian">
+        <Accordion.Toggle as={Card.Header} eventKey="5">
+        <strong>About Me</strong>
+        </Accordion.Toggle>
+        <Accordion.Collapse eventKey="5">
         <Card.Body>
         <h6><strong>My name is Kimmi</strong></h6>
         <h6><i>"I was once in a pit of despair, until I learned to code" - Kimmi</i></h6>
@@ -221,10 +240,10 @@ const HomePageAccordion = () => {
         </Accordion.Collapse>
     </Card>
     <Card className="card-accordian">
-        <Accordion.Toggle as={Card.Header} eventKey="5">
+        <Accordion.Toggle as={Card.Header} eventKey="6">
         <strong>How to use this website?</strong>
         </Accordion.Toggle>
-        <Accordion.Collapse eventKey="5">
+        <Accordion.Collapse eventKey="6">
         <Card.Body>
         <h6><strong>Shopper</strong></h6>
         <p>You can jump right in by signing up. The reason that you need to sign up and log in is that certain features will only appear once you have logged in. Check it out. Click on Shopper without logging in and you will only see the current products on sale. If you click on an item, you will not have the ability to add items to cart</p>
@@ -236,10 +255,10 @@ const HomePageAccordion = () => {
     </Card>
 
     <Card className="card-accordian">
-        <Accordion.Toggle as={Card.Header} eventKey="6">
+        <Accordion.Toggle as={Card.Header} eventKey="7">
         <strong>TL : DR </strong>
         </Accordion.Toggle>
-        <Accordion.Collapse eventKey="6">
+        <Accordion.Collapse eventKey="7">
         <Card.Body>
         <p> - A Demo page - click on shopper to get started</p>
         <p> - Looking out for opportunities</p>

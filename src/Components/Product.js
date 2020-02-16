@@ -6,7 +6,7 @@ function Product(props) {
 
     return (
         <Card id = {props.id} className="product-card" onClick={props.clicked}>
-            <Card.Img className="product-card-img" variant="top" src={`${process.env.REACT_APP_BASE_URL}/${props.image}`} />
+            <Card.Img className="product-card-img" variant="top" src={`${process.env.REACT_APP_BASE_URL}/aws/${props.image}`} />
             <Card.Body className="product-card-body">
                 <Card.Title>{props.title}</Card.Title>
                 <Card.Text>
