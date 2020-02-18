@@ -11,7 +11,7 @@ return(
           <Modal.Title>Error Encountered</Modal.Title>
         </Modal.Header>
         <Modal.Body>You have encountered an error:</Modal.Body>
-        <Modal.Body>{props.errorMessage}</Modal.Body>
+        <Modal.Body> { props.errorMessage }</Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={props.handleClose}>
             Close

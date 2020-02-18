@@ -36,7 +36,7 @@ useEffect(() => {
         history.push('/login')
         dispatch({
             type: 'SET_CURRENT_USER',
-            payload : decoded
+            payload : {}
         })
         }
     } else {

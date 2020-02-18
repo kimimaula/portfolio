@@ -17,31 +17,28 @@ const Signup = () => {
     const formData =  new FormData();
     const [ image, setImage] = useState()
     const [ show, setShow ] = useState(false)
-    const [ errormessage, setErrorMessage ] = useState()
+    const [ errormessage, setErrorMessage ] = useState([])
     const handleClose = () => setShow(false);
     const { register, handleSubmit, errors } = useForm()
     const [ isSubmitting , setIsSubmitting ] = useState(false)
 
-    const onSubmit = userData => {
+    const onSubmit = async userData => {
         setIsSubmitting(true)
         formData.set('username', userData.username);
         formData.set('email', userData.email);
         formData.set('password', userData.password);
         formData.append('image', image)
         
-            axios({
-                method: 'post',
-                url: '/api/user/signup',
-                data: formData,
-              })
-            .then( response => {
-                alert('account created')
-                history.push("/login")
-                 })
-            .catch(function (error) {
-                    setShow(true)
-                    setErrorMessage(error.response.data.message)
-                 })
+        try{
+            await axios({method: 'post', url: '/api/user/signup', data: formData})
+        alert('account created')
+        history.push("/login")
+        } catch (error) {
+            setShow(true)
+            console.log(error)
+            setErrorMessage(error.response.data.message)
+            console.log(error)
+        }
         setIsSubmitting(false)
     } 
     

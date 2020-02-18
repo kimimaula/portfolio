@@ -218,6 +218,13 @@ const HomePageAccordion = () => {
                     <li>Major Changes to UI</li>
                     <li>Images now hosted on AWS S3 so image will persist</li>  
                 </ul>
+
+                <li><strong>Changelog 18/2/2019</strong></li>
+                <ul>
+                    <li>Fixed bugs on signup page (user being able to signup with same email)</li>
+                    <li>Fixed bugs on error modal</li>
+                    <li>Added ability for users to update their username and email</li>  
+                </ul>
             </ul>
         </Card.Body>
         </Accordion.Collapse>
